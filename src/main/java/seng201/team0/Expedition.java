@@ -1,6 +1,9 @@
 package seng201.team0;
 
 public class Expedition {
+    //Constants for Class
+    protected final int BASE_EVENT_TOTAL = 5;
+
     private String Name;
     private String Description;
     private int staminaRequired;
@@ -69,8 +72,33 @@ public class Expedition {
         this.Reward = Reward;
     }
 
+    //Calculates the number of Events for the Expedition based on stamina
+    public int numberOfEvents(int TotalStamina)
+    {
+        //Int for divdeing the EventTotal, Creating a new Event total if TotalStamina is too low
+        int EventDivder = 0;
+
+        //Varaible for the Total amount of events for the expedition, based on BASE_EVENT_TOTAL as a starting point
+        int EventTotal = BASE_EVENT_TOTAL;
+
+        if (TotalStamina >= this.staminaRequired)
+        {
+            return EventTotal;
+        }
+        else
+        {
+            //Calculation for Number of events
+            EventDivder = this.staminaRequired / EventTotal;
 
 
+            //Returning the new event total which should be no lower than 1
+            return  TotalStamina / EventDivder ;
+
+
+        }
+
+
+    }
 
 
 
