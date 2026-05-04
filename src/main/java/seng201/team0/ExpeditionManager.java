@@ -1,6 +1,7 @@
 package seng201.team0;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 
 public class ExpeditionManager
@@ -56,14 +57,39 @@ public class ExpeditionManager
     //Generates Random Expeditions for the Player to choose
     public void generatePossibleExpeditions()
     {
+        //Generate random Numbers for the expedition stats
+        Random r = new Random();
+
         //Counter for number of Expeditions put into the array
-        int i = 0;
+
         if(this.getCurrentExpedition() == null)
         {
-            while( i < this.Expeditions.size())
+            //Temporary list for the Expeditionss
+            ArrayList<Expedition> tempExpeditionList = null;
+            int i = 0;
+            while(tempExpeditionList.size() < BASE_EXPEDITION_ARRAY_SIZE)
             {
+                i += 1;
+                //Code for randomly generating Perception and Stamina requirements for Expeditions
+                int addToPerception = (r.nextInt(10) + 1)* numberOfExpeditions;
+                int addToStamina = (r.nextInt(10) + 1) * numberOfExpeditions;
+
+                //Code required for generating names and descriptions, possibly from a pre generated text file
+                String newName = "Name Test: " +  i;
+                String newDescription = "Description Test: " + i;
+
+
+                Expedition newExpedition = new Expedition(newName,
+                        newDescription,
+                        (addToStamina * 15) + BASE_STAMINA_SCORE,
+                        (addToPerception * 5) + BASE_PERCEPTION_SCORE,
+                        (addToPerception + addToStamina) * 2);
+                //Adds the New Expedition to the temporay Expedition list
+                tempExpeditionList.add(newExpedition);
 
             }
+            //Sets the temopary list as the Expedition list
+            this.setExpeditions(tempExpeditionList);
         }
     }
     //Runs events from the expedition

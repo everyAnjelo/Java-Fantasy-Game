@@ -11,7 +11,7 @@ public class Expedition {
     private double Reward;
 
 //    Constructor for the Expeditions
-    public void Expedition(String Name,String Description, int Stamina, int Perception, double Reward )
+    public Expedition(String Name,String Description, int Stamina, int Perception, double Reward )
     {
         this.Name = Name;
         this.Description = Description;
