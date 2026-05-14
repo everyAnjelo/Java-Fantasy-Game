@@ -4,20 +4,21 @@ public class Expedition {
     //Constants for Class
     protected final int BASE_EVENT_TOTAL = 5;
 
-    private String Name;
-    private String Description;
+    private String name;
+    private String description;
     private int staminaRequired;
     private int perceptionRequired;
-    private double Reward;
+    private double reward;
+    private EventType eventType;
 
 //    Constructor for the Expeditions
     public Expedition(String Name,String Description, int Stamina, int Perception, double Reward )
     {
-        this.Name = Name;
-        this.Description = Description;
+        this.name = Name;
+        this.description = Description;
         this.staminaRequired = Stamina;
         this.perceptionRequired = Perception;
-        this.Reward = Reward;
+        this.reward = Reward;
 
 
     }
@@ -25,12 +26,12 @@ public class Expedition {
     //Getter Methods for Expeditions
     public String getName()
     {
-        return Name;
+        return name;
     }
 
     public String getDescription()
     {
-        return Description;
+        return description;
     }
     public int getStaminaRequired()
     {
@@ -42,19 +43,19 @@ public class Expedition {
     }
     public double getReward()
     {
-        return Reward;
+        return reward;
     }
 
     //Setter Methods for Expeditions
 
     public void setName(String Name)
     {
-        this.Name = Name;
+        this.name = Name;
     }
 
     public void setDescription(String Description)
     {
-        this.Description = Description;
+        this.description = Description;
     }
 
     public void setStaminaRequired(int Stamina)
@@ -69,16 +70,16 @@ public class Expedition {
 
     public void setReward(double Reward)
     {
-        this.Reward = Reward;
+        this.reward = Reward;
     }
 
     //Calculates the number of Events for the Expedition based on stamina
     public int numberOfEvents(int TotalStamina)
     {
-        //Int for divdeing the EventTotal, Creating a new Event total if TotalStamina is too low
+        //Int for dividing the EventTotal, Creating a new Event total if TotalStamina is too low
         int EventDivder = 0;
 
-        //Varaible for the Total amount of events for the expedition, based on BASE_EVENT_TOTAL as a starting point
+        //Variable for the Total amount of events for the expedition, based on BASE_EVENT_TOTAL as a starting point
         int EventTotal = BASE_EVENT_TOTAL;
 
         if (TotalStamina >= this.staminaRequired)
