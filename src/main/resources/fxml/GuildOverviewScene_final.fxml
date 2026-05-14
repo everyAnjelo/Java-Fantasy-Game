@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="655.0" prefWidth="635.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <HBox prefHeight="60.0" prefWidth="635.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane prefHeight="60.0" prefWidth="355.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="8.0" text="Guild Overview">
+                     <font>
+                        <Font size="37.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="60.0" prefWidth="110.0">
+               <children>
+                  <Label fx:id="goldLabel" layoutX="-29.0" layoutY="21.0" text="Gold: 500" textFill="#d3b000">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="60.0" prefWidth="170.0">
+               <children>
+                  <Button fx:id="menuButton" layoutX="62.0" layoutY="12.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="47.0" text="button" />
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <HBox prefHeight="595.0" prefWidth="635.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="595.0" prefWidth="340.0">
+               <children>
+                  <AnchorPane prefHeight="45.0" prefWidth="340.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="17.0" text="Main Team Adventurers">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Line endX="225.0" layoutX="114.0" startX="-100.0" stroke="#808080" strokeWidth="2.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="106.0" prefWidth="340.0">
+                     <children>
+                        <Rectangle arcHeight="2.0" arcWidth="5.0" fill="#eeeeee" height="94.0" layoutX="14.0" layoutY="6.0" stroke="BLACK" strokeType="INSIDE" width="314.0" />
+                        <Label layoutX="25.0" layoutY="11.0" text="Main Slot 1">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="mainRole1" layoutX="25.0" layoutY="38.0" text="Role: -" />
+                        <Label fx:id="mainName1" layoutX="25.0" layoutY="56.0" text="Name: -" />
+                        <Label fx:id="mainStamina1" layoutX="138.0" layoutY="38.0" text="Stamina: -" />
+                        <Label fx:id="mainPerception1" layoutX="138.0" layoutY="56.0" text="Perception: -" />
+                        <Label fx:id="mainPay1" layoutX="25.0" layoutY="74.0" text="Pay: -" />
+                        <Button fx:id="mainRetireButton1" layoutX="253.0" layoutY="62.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="58.0" text="Retire" />
+                        <Button fx:id="mainMoveButton1" layoutX="255.0" layoutY="34.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="54.0" text="Move" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="106.0" prefWidth="340.0">
+                     <children>
+                        <Rectangle arcHeight="2.0" arcWidth="5.0" fill="#eeeeee" height="94.0" layoutX="14.0" layoutY="6.0" stroke="BLACK" strokeType="INSIDE" width="314.0" />
+                        <Label layoutX="25.0" layoutY="11.0" text="Main Slot 2">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="mainRole2" layoutX="25.0" layoutY="38.0" text="Role: -" />
+                        <Label fx:id="mainName2" layoutX="25.0" layoutY="56.0" text="Name: -" />
+                        <Label fx:id="mainStamina2" layoutX="138.0" layoutY="38.0" text="Stamina: -" />
+                        <Label fx:id="mainPerception2" layoutX="138.0" layoutY="56.0" text="Perception: -" />
+                        <Label fx:id="mainPay2" layoutX="25.0" layoutY="74.0" text="Pay: -" />
+                        <Button fx:id="mainRetireButton2" layoutX="253.0" layoutY="62.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="58.0" text="Retire" />
+                        <Button fx:id="mainMoveButton2" layoutX="255.0" layoutY="34.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="54.0" text="Move" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="106.0" prefWidth="340.0">
+                     <children>
+                        <Rectangle arcHeight="2.0" arcWidth="5.0" fill="#eeeeee" height="94.0" layoutX="14.0" layoutY="6.0" stroke="BLACK" strokeType="INSIDE" width="314.0" />
+                        <Label layoutX="25.0" layoutY="11.0" text="Main Slot 3">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="mainRole3" layoutX="25.0" layoutY="38.0" text="Role: -" />
+                        <Label fx:id="mainName3" layoutX="25.0" layoutY="56.0" text="Name: -" />
+                        <Label fx:id="mainStamina3" layoutX="138.0" layoutY="38.0" text="Stamina: -" />
+                        <Label fx:id="mainPerception3" layoutX="138.0" layoutY="56.0" text="Perception: -" />
+                        <Label fx:id="mainPay3" layoutX="25.0" layoutY="74.0" text="Pay: -" />
+                        <Button fx:id="mainRetireButton3" layoutX="253.0" layoutY="62.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="58.0" text="Retire" />
+                        <Button fx:id="mainMoveButton3" layoutX="255.0" layoutY="34.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="54.0" text="Move" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="106.0" prefWidth="340.0">
+                     <children>
+                        <Rectangle arcHeight="2.0" arcWidth="5.0" fill="#eeeeee" height="94.0" layoutX="14.0" layoutY="6.0" stroke="BLACK" strokeType="INSIDE" width="314.0" />
+                        <Label layoutX="25.0" layoutY="11.0" text="Main Slot 4">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="mainRole4" layoutX="25.0" layoutY="38.0" text="Role: -" />
+                        <Label fx:id="mainName4" layoutX="25.0" layoutY="56.0" text="Name: -" />
+                        <Label fx:id="mainStamina4" layoutX="138.0" layoutY="38.0" text="Stamina: -" />
+                        <Label fx:id="mainPerception4" layoutX="138.0" layoutY="56.0" text="Perception: -" />
+                        <Label fx:id="mainPay4" layoutX="25.0" layoutY="74.0" text="Pay: -" />
+                        <Button fx:id="mainRetireButton4" layoutX="253.0" layoutY="63.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="58.0" text="Retire" />
+                        <Button fx:id="mainMoveButton4" layoutX="255.0" layoutY="34.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="54.0" text="Move" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="106.0" prefWidth="340.0">
+                     <children>
+                        <Rectangle arcHeight="2.0" arcWidth="5.0" fill="#eeeeee" height="94.0" layoutX="14.0" layoutY="6.0" stroke="BLACK" strokeType="INSIDE" width="314.0" />
+                        <Label layoutX="25.0" layoutY="11.0" text="Main Slot 5">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="mainRole5" layoutX="25.0" layoutY="38.0" text="Role: -" />
+                        <Label fx:id="mainName5" layoutX="25.0" layoutY="56.0" text="Name: -" />
+                        <Label fx:id="mainStamina5" layoutX="138.0" layoutY="38.0" text="Stamina: -" />
+                        <Label fx:id="mainPerception5" layoutX="138.0" layoutY="56.0" text="Perception: -" />
+                        <Label fx:id="mainPay5" layoutX="25.0" layoutY="74.0" text="Pay: -" />
+                        <Button fx:id="mainRetireButton5" layoutX="261.0" layoutY="62.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="58.0" text="Retire" />
+                        <Button fx:id="mainMoveButton5" layoutX="255.0" layoutY="34.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="54.0" text="Move" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="65.0" prefWidth="340.0">
+                     <children>
+                        <Button fx:id="backButton" layoutX="14.0" layoutY="16.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="145.0" text="Back to Guildhall" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+            <VBox prefHeight="595.0" prefWidth="295.0">
+               <children>
+                  <AnchorPane prefHeight="45.0" prefWidth="295.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="17.0" text="Reserved Adventurers">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Line endX="190.0" layoutX="105.0" startX="-100.0" stroke="#808080" strokeWidth="2.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="106.0" prefWidth="295.0">
+                     <children>
+                        <Rectangle arcHeight="2.0" arcWidth="5.0" fill="#eeeeee" height="94.0" layoutX="8.0" layoutY="6.0" stroke="BLACK" strokeType="INSIDE" width="278.0" />
+                        <Label layoutX="19.0" layoutY="11.0" text="Reserve Slot 1">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="reserveRole1" layoutX="19.0" layoutY="38.0" text="Role: -" />
+                        <Label fx:id="reserveName1" layoutX="19.0" layoutY="56.0" text="Name: -" />
+                        <Label fx:id="reserveStamina1" layoutX="128.0" layoutY="38.0" text="Stamina: -" />
+                        <Label fx:id="reservePerception1" layoutX="128.0" layoutY="56.0" text="Perception: -" />
+                        <Label fx:id="reservePay1" layoutX="19.0" layoutY="76.0" text="Pay: -" />
+                        <Button fx:id="reserveRetireButton1" layoutX="215.0" layoutY="64.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="58.0" text="Retire" />
+                        <Button fx:id="reserveUseButton1" layoutX="218.0" layoutY="34.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="51.0" text="Use" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="106.0" prefWidth="295.0">
+                     <children>
+                        <Rectangle arcHeight="2.0" arcWidth="5.0" fill="#eeeeee" height="94.0" layoutX="8.0" layoutY="6.0" stroke="BLACK" strokeType="INSIDE" width="278.0" />
+                        <Label layoutX="19.0" layoutY="11.0" text="Reserve Slot 2">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="reserveRole2" layoutX="19.0" layoutY="38.0" text="Role: -" />
+                        <Label fx:id="reserveName2" layoutX="19.0" layoutY="56.0" text="Name: -" />
+                        <Label fx:id="reserveStamina2" layoutX="128.0" layoutY="38.0" text="Stamina: -" />
+                        <Label fx:id="reservePerception2" layoutX="128.0" layoutY="56.0" text="Perception: -" />
+                        <Label fx:id="reservePay2" layoutX="19.0" layoutY="76.0" text="Pay: -" />
+                        <Button fx:id="reserveRetireButton2" layoutX="215.0" layoutY="64.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="58.0" text="Retire" />
+                        <Button fx:id="reserveUseButton2" layoutX="218.0" layoutY="34.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="51.0" text="Use" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="106.0" prefWidth="295.0">
+                     <children>
+                        <Rectangle arcHeight="2.0" arcWidth="5.0" fill="#eeeeee" height="94.0" layoutX="8.0" layoutY="6.0" stroke="BLACK" strokeType="INSIDE" width="278.0" />
+                        <Label layoutX="19.0" layoutY="11.0" text="Reserve Slot 3">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="reserveRole3" layoutX="19.0" layoutY="38.0" text="Role: -" />
+                        <Label fx:id="reserveName3" layoutX="19.0" layoutY="56.0" text="Name: -" />
+                        <Label fx:id="reserveStamina3" layoutX="128.0" layoutY="38.0" text="Stamina: -" />
+                        <Label fx:id="reservePerception3" layoutX="128.0" layoutY="56.0" text="Perception: -" />
+                        <Label fx:id="reservePay3" layoutX="19.0" layoutY="76.0" text="Pay: -" />
+                        <Button fx:id="reserveRetireButton3" layoutX="215.0" layoutY="64.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="58.0" text="Retire" />
+                        <Button fx:id="reserveUseButton3" layoutX="218.0" layoutY="34.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="51.0" text="Use" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="106.0" prefWidth="295.0">
+                     <children>
+                        <Rectangle arcHeight="2.0" arcWidth="5.0" fill="#eeeeee" height="94.0" layoutX="8.0" layoutY="6.0" stroke="BLACK" strokeType="INSIDE" width="278.0" />
+                        <Label layoutX="19.0" layoutY="11.0" text="Reserve Slot 4">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="reserveRole4" layoutX="19.0" layoutY="38.0" text="Role: -" />
+                        <Label fx:id="reserveName4" layoutX="19.0" layoutY="56.0" text="Name: -" />
+                        <Label fx:id="reserveStamina4" layoutX="128.0" layoutY="38.0" text="Stamina: -" />
+                        <Label fx:id="reservePerception4" layoutX="128.0" layoutY="56.0" text="Perception: -" />
+                        <Label fx:id="reservePay4" layoutX="19.0" layoutY="76.0" text="Pay: -" />
+                        <Button fx:id="reserveRetireButton4" layoutX="215.0" layoutY="64.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="58.0" text="Retire" />
+                        <Button fx:id="reserveUseButton4" layoutX="218.0" layoutY="34.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="51.0" text="Use" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="106.0" prefWidth="295.0">
+                     <children>
+                        <Rectangle arcHeight="2.0" arcWidth="5.0" fill="#eeeeee" height="94.0" layoutX="8.0" layoutY="6.0" stroke="BLACK" strokeType="INSIDE" width="278.0" />
+                        <Label layoutX="19.0" layoutY="11.0" text="Reserve Slot 5">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="reserveRole5" layoutX="19.0" layoutY="38.0" text="Role: -" />
+                        <Label fx:id="reserveName5" layoutX="19.0" layoutY="56.0" text="Name: -" />
+                        <Label fx:id="reserveStamina5" layoutX="128.0" layoutY="38.0" text="Stamina: -" />
+                        <Label fx:id="reservePerception5" layoutX="128.0" layoutY="56.0" text="Perception: -" />
+                        <Label fx:id="reservePay5" layoutX="19.0" layoutY="76.0" text="Pay: -" />
+                        <Button fx:id="reserveRetireButton5" layoutX="215.0" layoutY="64.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="58.0" text="Retire" />
+                        <Button fx:id="reserveUseButton5" layoutX="218.0" layoutY="34.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="51.0" text="Use" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="65.0" prefWidth="295.0">
+                     <children>
+                        <Button fx:id="startExpeditionButton" layoutX="128.0" layoutY="16.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="145.0" text="Start Expedition" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </center>
+</BorderPane>

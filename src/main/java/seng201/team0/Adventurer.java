@@ -1,5 +1,12 @@
 package seng201.team0;
 
+/**
+ * Represents a general adventurer in the game.
+ *
+ * This is an abstract class because every adventurer shares common data
+ * such as name, role, stamina, perception, pay, and hiring cost, but each
+ * specific adventurer type should have its own special skill.
+ */
 public abstract class Adventurer {
 
     public String name;
@@ -13,6 +20,19 @@ public abstract class Adventurer {
     public boolean isRetired;
     public Item equippedWeapon;
 
+    /**
+     * Creates a new adventurer with the given starting stats.
+     *
+     * Each adventurer starts with 0 completed expeditions, a maximum of
+     * 5 expeditions and is not retired.
+     *
+     * @param name the name of the adventurer
+     * @param role the role/class of the adventurer
+     * @param stamina the stamina stat of the adventurer
+     * @param perception the perception stat of the adventurer
+     * @param pay the amount the adventurer must be paid
+     * @param hiringCost the cost to hire the adventurer
+     */
     public Adventurer(String name, Role role, int stamina, int perception, double pay, double hiringCost) {
         this.name = name;
         this.role = role;
@@ -26,22 +46,56 @@ public abstract class Adventurer {
         this.equippedWeapon = null;
     }
 
+    /**
+     * Performs the adventurer's special skill.
+     *
+     * This is abstract because each subclass of Adventurer should provide
+     * its own version of the skill.
+     */
     public abstract void specialSkill();
 
+    /**
+     * Checks whether the adventurer is still allowed to join an expedition.
+     *
+     * An adventurer can go on an expedition if they are not retired and
+     * have not reached the maximum number of expeditions.
+     *
+     * @return true if the adventurer can still go on an expedition, false otherwise
+     */
     public boolean canGoOnExpedition() {
         return !isRetired && expeditionCount < maxExpeditions;
     }
 
+    /**
+     * Adds one to the adventurer's completed expedition count.
+     */
     public void completeExpedition() {
         expeditionCount++;
 
-
+        if(expeditionCount == 3){
+            specialSkill();
+            System.out.println(name + "use the special skills");
+        }
     }
 
+    /**
+     * Retires the adventurer, preventing them from joining future expeditions.
+     */
     public void retire() {
         isRetired = true;
     }
 
+    /**
+     * Equips a weapon to the adventurer.
+     *
+     * The item must not be null, must be a weapon, must be usable by this
+     * adventurer, and the adventurer must not already have a weapon equipped.
+     *
+     * If the weapon is successfully equipped, its stats are applied to
+     * the adventurer.
+     *
+     * @param weapon the weapon item to equip
+     */
     public void equipWeapon(Item weapon) {
         if (weapon == null) {
             return;
@@ -68,13 +122,21 @@ public abstract class Adventurer {
         System.out.println(name + " equipped " + weapon.name);
     }
 
+    /**
+     * Uses a potion on the adventurer.
+     *
+     * The item must not be null and must be a potion.
+     * If valid, the potion's stats are applied to the adventurer.
+     *
+     * @param potion the potion item to use
+     */
     public void usePotion(Item potion) {
         if (potion == null) {
             return;
         }
 
         if (potion.type != ItemType.POTION) {
-            System.out.println(potion.name + " is not a potion.");
+            System.out.println(potion.name + " is nto a potion.");
             return;
         }
 
@@ -83,14 +145,32 @@ public abstract class Adventurer {
         System.out.println(name + " used " + potion.name);
     }
 
+    /**
+     * Increases the adventurer's stamina.
+     *
+     * @param amount the amount of stamina to add
+     */
     public void addStamina(int amount) {
         stamina += amount;
     }
 
+    /**
+     * Increases the adventurer's perception.
+     *
+     * @param amount the amount of perception to add
+     */
     public void addPerception(int amount) {
         perception += amount;
     }
 
+    /**
+     * Returns a formatted string containing the adventurer's current stats.
+     *
+     * This includes their name, role, stamina, perception, pay, hiring cost,
+     * expedition count, retirement status, and equipped weapon.
+     *
+     * @return the adventurer's stats as a string
+     */
     public String getStats() {
         String weaponName;
 

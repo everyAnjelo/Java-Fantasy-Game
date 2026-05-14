@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="655.0" prefWidth="635.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <AnchorPane prefHeight="73.0" prefWidth="635.0" style="-fx-background-color: #f4f4f4; -fx-border-color: #bdbdbd; -fx-border-width: 0 0 1 0;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="22.0" layoutY="18.0" text="Guild Hall">
+               <font>
+                  <Font size="31.0" />
+               </font>
+            </Label>
+            <Label fx:id="goldLabel" layoutX="395.0" layoutY="26.0" text="Gold: 500">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <MenuButton fx:id="menuButton" layoutX="536.0" layoutY="17.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="63.0" text="☰">
+              <items>
+                <MenuItem fx:id="inventoryMenuItem" mnemonicParsing="false" text="Inventory" />
+                <MenuItem fx:id="guildOverviewMenuItem" mnemonicParsing="false" text="Guild Overview" />
+                <MenuItem fx:id="exitMenuItem" mnemonicParsing="false" text="Exit" />
+              </items>
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </MenuButton>
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <HBox prefHeight="582.0" prefWidth="635.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+         </padding>
+         <children>
+            <VBox prefHeight="554.0" prefWidth="296.0" spacing="8.0">
+               <children>
+                  <Label text="Recruit Adventurers">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+                  <Label text="Choose one of the available recruits." textFill="#666666">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Label>
+                  <Separator prefWidth="290.0" />
+
+                  <AnchorPane prefHeight="107.0" prefWidth="296.0" style="-fx-border-color: #9e9e9e; -fx-background-color: #f7f7f7;">
+                     <children>
+                        <Label fx:id="recruitRoleLabel1" layoutX="12.0" layoutY="8.0" text="Role: Warrior">
+                           <font><Font size="15.0" /></font>
+                        </Label>
+                        <Label fx:id="recruitNameLabel1" layoutX="12.0" layoutY="30.0" text="Name: Recruit 1" />
+                        <Label fx:id="recruitStaminaLabel1" layoutX="12.0" layoutY="51.0" text="Stamina: 0" />
+                        <Label fx:id="recruitPerceptionLabel1" layoutX="132.0" layoutY="51.0" text="Perception: 0" />
+                        <Label fx:id="recruitPayLabel1" layoutX="12.0" layoutY="72.0" text="Pay: 0 / expedition" />
+                        <Button fx:id="hireButton1" layoutX="207.0" layoutY="70.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="74.0" text="Hiringcost" />
+                     </children>
+                  </AnchorPane>
+
+                  <AnchorPane prefHeight="107.0" prefWidth="296.0" style="-fx-border-color: #9e9e9e; -fx-background-color: #f7f7f7;">
+                     <children>
+                        <Label fx:id="recruitRoleLabel2" layoutX="12.0" layoutY="8.0" text="Role: Mage">
+                           <font><Font size="15.0" /></font>
+                        </Label>
+                        <Label fx:id="recruitNameLabel2" layoutX="12.0" layoutY="30.0" text="Name: Recruit 2" />
+                        <Label fx:id="recruitStaminaLabel2" layoutX="12.0" layoutY="51.0" text="Stamina: 0" />
+                        <Label fx:id="recruitPerceptionLabel2" layoutX="132.0" layoutY="51.0" text="Perception: 0" />
+                        <Label fx:id="recruitPayLabel2" layoutX="12.0" layoutY="72.0" text="Pay: 0 / expedition" />
+                        <Button fx:id="hireButton2" layoutX="223.0" layoutY="70.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="58.0" text="Hiringcost" />
+                     </children>
+                  </AnchorPane>
+
+                  <AnchorPane prefHeight="107.0" prefWidth="296.0" style="-fx-border-color: #9e9e9e; -fx-background-color: #f7f7f7;">
+                     <children>
+                        <Label fx:id="recruitRoleLabel3" layoutX="12.0" layoutY="8.0" text="Role: Marksman">
+                           <font><Font size="15.0" /></font>
+                        </Label>
+                        <Label fx:id="recruitNameLabel3" layoutX="12.0" layoutY="30.0" text="Name: Recruit 3" />
+                        <Label fx:id="recruitStaminaLabel3" layoutX="12.0" layoutY="51.0" text="Stamina: 0" />
+                        <Label fx:id="recruitPerceptionLabel3" layoutX="132.0" layoutY="51.0" text="Perception: 0" />
+                        <Label fx:id="recruitPayLabel3" layoutX="12.0" layoutY="72.0" text="Pay: 0 / expedition" />
+                        <Button fx:id="hireButton3" layoutX="223.0" layoutY="70.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="58.0" text="Hiringcost" />
+                     </children>
+                  </AnchorPane>
+
+                  <AnchorPane prefHeight="107.0" prefWidth="296.0" style="-fx-border-color: #9e9e9e; -fx-background-color: #f7f7f7;">
+                     <children>
+                        <Label fx:id="recruitRoleLabel4" layoutX="12.0" layoutY="8.0" text="Role: Rogue">
+                           <font><Font size="15.0" /></font>
+                        </Label>
+                        <Label fx:id="recruitNameLabel4" layoutX="12.0" layoutY="30.0" text="Name: Recruit 4" />
+                        <Label fx:id="recruitStaminaLabel4" layoutX="12.0" layoutY="51.0" text="Stamina: 0" />
+                        <Label fx:id="recruitPerceptionLabel4" layoutX="132.0" layoutY="51.0" text="Perception: 0" />
+                        <Label fx:id="recruitPayLabel4" layoutX="12.0" layoutY="72.0" text="Pay: 0 / expedition" />
+                        <Button fx:id="hireButton4" layoutX="223.0" layoutY="70.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="58.0" text="Hiringcost" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+
+            <Separator orientation="VERTICAL" prefHeight="580.0" prefWidth="8.0" />
+
+            <VBox prefHeight="554.0" prefWidth="295.0" spacing="8.0">
+               <children>
+                  <Label text="Main Team">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+                  <Label text="Current adventurers in your team." textFill="#666666">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Label>
+                  <Separator prefWidth="290.0" />
+
+                  <AnchorPane prefHeight="82.0" prefWidth="295.0" style="-fx-border-color: #9e9e9e; -fx-background-color: #f7f7f7;">
+                     <children>
+                        <Label fx:id="mainRoleLabel1" layoutX="12.0" layoutY="7.0" text="Role: Empty">
+                           <font><Font size="14.0" /></font>
+                        </Label>
+                        <Label fx:id="mainNameLabel1" layoutX="12.0" layoutY="28.0" text="Name: -" />
+                        <Label fx:id="mainStaminaLabel1" layoutX="12.0" layoutY="49.0" text="Stamina: -" />
+                        <Label fx:id="mainPerceptionLabel1" layoutX="122.0" layoutY="49.0" text="Perception: -" />
+                        <Label fx:id="mainPayLabel1" layoutX="210.0" layoutY="28.0" text="Pay: -" />
+                     </children>
+                  </AnchorPane>
+
+                  <AnchorPane prefHeight="82.0" prefWidth="295.0" style="-fx-border-color: #9e9e9e; -fx-background-color: #f7f7f7;">
+                     <children>
+                        <Label fx:id="mainRoleLabel2" layoutX="12.0" layoutY="7.0" text="Role: Empty">
+                           <font><Font size="14.0" /></font>
+                        </Label>
+                        <Label fx:id="mainNameLabel2" layoutX="12.0" layoutY="28.0" text="Name: -" />
+                        <Label fx:id="mainStaminaLabel2" layoutX="12.0" layoutY="49.0" text="Stamina: -" />
+                        <Label fx:id="mainPerceptionLabel2" layoutX="122.0" layoutY="49.0" text="Perception: -" />
+                        <Label fx:id="mainPayLabel2" layoutX="210.0" layoutY="28.0" text="Pay: -" />
+                     </children>
+                  </AnchorPane>
+
+                  <AnchorPane prefHeight="82.0" prefWidth="295.0" style="-fx-border-color: #9e9e9e; -fx-background-color: #f7f7f7;">
+                     <children>
+                        <Label fx:id="mainRoleLabel3" layoutX="12.0" layoutY="7.0" text="Role: Empty">
+                           <font><Font size="14.0" /></font>
+                        </Label>
+                        <Label fx:id="mainNameLabel3" layoutX="12.0" layoutY="28.0" text="Name: -" />
+                        <Label fx:id="mainStaminaLabel3" layoutX="12.0" layoutY="49.0" text="Stamina: -" />
+                        <Label fx:id="mainPerceptionLabel3" layoutX="122.0" layoutY="49.0" text="Perception: -" />
+                        <Label fx:id="mainPayLabel3" layoutX="210.0" layoutY="28.0" text="Pay: -" />
+                     </children>
+                  </AnchorPane>
+
+                  <AnchorPane prefHeight="82.0" prefWidth="295.0" style="-fx-border-color: #9e9e9e; -fx-background-color: #f7f7f7;">
+                     <children>
+                        <Label fx:id="mainRoleLabel4" layoutX="12.0" layoutY="7.0" text="Role: Empty">
+                           <font><Font size="14.0" /></font>
+                        </Label>
+                        <Label fx:id="mainNameLabel4" layoutX="12.0" layoutY="28.0" text="Name: -" />
+                        <Label fx:id="mainStaminaLabel4" layoutX="12.0" layoutY="49.0" text="Stamina: -" />
+                        <Label fx:id="mainPerceptionLabel4" layoutX="122.0" layoutY="49.0" text="Perception: -" />
+                        <Label fx:id="mainPayLabel4" layoutX="210.0" layoutY="28.0" text="Pay: -" />
+                     </children>
+                  </AnchorPane>
+
+                  <AnchorPane prefHeight="82.0" prefWidth="295.0" style="-fx-border-color: #9e9e9e; -fx-background-color: #f7f7f7;">
+                     <children>
+                        <Label fx:id="mainRoleLabel5" layoutX="12.0" layoutY="7.0" text="Role: Empty">
+                           <font><Font size="14.0" /></font>
+                        </Label>
+                        <Label fx:id="mainNameLabel5" layoutX="12.0" layoutY="28.0" text="Name: -" />
+                        <Label fx:id="mainStaminaLabel5" layoutX="12.0" layoutY="49.0" text="Stamina: -" />
+                        <Label fx:id="mainPerceptionLabel5" layoutX="122.0" layoutY="49.0" text="Perception: -" />
+                        <Label fx:id="mainPayLabel5" layoutX="210.0" layoutY="28.0" text="Pay: -" />
+                     </children>
+                  </AnchorPane>
+
+                  <Button fx:id="startExpeditionButton" mnemonicParsing="false" prefHeight="35.0" prefWidth="295.0" text="Start Expedition">
+                     <font><Font size="15.0" /></font>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </center>
+</BorderPane>

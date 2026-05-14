@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="655.0" prefWidth="635.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="78.0" prefWidth="635.0" style="-fx-background-color: #f2f2f2;">
+         <children>
+            <Label layoutX="276.0" layoutY="11.0" text="Result">
+               <font><Font size="32.0" /></font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Separator prefWidth="635.0" />
+      <AnchorPane prefHeight="95.0" prefWidth="635.0">
+         <children>
+            <Label layoutX="35.0" layoutY="22.0" text="Guild Name">
+               <font><Font size="18.0" /></font>
+            </Label>
+            <Label fx:id="guildNameLabel" layoutX="35.0" layoutY="50.0" text="No guild name yet" textFill="#555555">
+               <font><Font size="24.0" /></font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="110.0" prefWidth="635.0">
+         <children>
+            <Separator prefWidth="635.0" />
+            <Label layoutX="35.0" layoutY="25.0" text="Game Result">
+               <font><Font size="18.0" /></font>
+            </Label>
+            <Label fx:id="winLoseLabel" layoutX="35.0" layoutY="53.0" text="Won / Lost" textFill="#333333">
+               <font><Font size="34.0" /></font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="240.0" prefWidth="635.0">
+         <children>
+            <Separator prefWidth="635.0" />
+            <Label layoutX="35.0" layoutY="27.0" text="Expedition Summary">
+               <font><Font size="20.0" /></font>
+            </Label>
+            <AnchorPane layoutX="35.0" layoutY="70.0" prefHeight="52.0" prefWidth="565.0" style="-fx-border-color: #bdbdbd; -fx-background-color: #f7f7f7;">
+               <children>
+                  <Label layoutX="17.0" layoutY="15.0" text="Number of Expedition Chosen">
+                     <font><Font size="16.0" /></font>
+                  </Label>
+                  <Label fx:id="chosenExpeditionLabel" alignment="CENTER_RIGHT" layoutX="523.0" layoutY="12.0" prefHeight="28.0" prefWidth="15.0" text="0">
+                     <font><Font size="20.0" /></font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="35.0" layoutY="132.0" prefHeight="52.0" prefWidth="565.0" style="-fx-border-color: #bdbdbd; -fx-background-color: #f7f7f7;">
+               <children>
+                  <Label layoutX="17.0" layoutY="15.0" text="Number of Completed Expedition">
+                     <font><Font size="16.0" /></font>
+                  </Label>
+                  <Label fx:id="completedExpeditionLabel" alignment="CENTER_RIGHT" layoutX="523.0" layoutY="12.0" prefHeight="28.0" prefWidth="15.0" text="0">
+                     <font><Font size="20.0" /></font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="105.0" prefWidth="635.0">
+         <children>
+            <Separator prefWidth="635.0" />
+            <Label layoutX="35.0" layoutY="22.0" text="Total Gold">
+               <font><Font size="18.0" /></font>
+            </Label>
+            <Label fx:id="totalGoldLabel" layoutX="35.0" layoutY="49.0" text="0 Gold" textFill="#555555">
+               <font><Font size="28.0" /></font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="123.0" prefWidth="635.0">
+         <children>
+            <Separator prefWidth="635.0" />
+            <Button fx:id="exitButton" layoutX="260.0" layoutY="32.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="115.0" text="Exit">
+               <font><Font size="16.0" /></font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+   <padding><Insets /></padding>
+</VBox>

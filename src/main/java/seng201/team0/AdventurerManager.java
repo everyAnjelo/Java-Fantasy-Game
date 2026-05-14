@@ -3,6 +3,13 @@ package seng201.team0;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * Manages the player's adventurers.
+ *
+ * This class keeps track of the main team, reserve team, and retired adventurers.
+ * It also handles adding, removing, retiring, generating adventurers, and
+ * calculating the team's expedition stats.
+ */
 public class AdventurerManager {
 
     public ArrayList<Adventurer> mainTeam;
@@ -14,6 +21,12 @@ public class AdventurerManager {
 
     public Random random;
 
+    /**
+     * Creates a new AdventurerManager.
+     *
+     * The manager starts with empty main, reserve, and retired teams.
+     * The main team and reserve team can each hold up to 5 adventurers.
+     */
     public AdventurerManager() {
         this.mainTeam = new ArrayList<>();
         this.reserveTeam = new ArrayList<>();
@@ -23,6 +36,16 @@ public class AdventurerManager {
         this.retiredTeam = new ArrayList<>();
     }
 
+    /**
+     * Adds an adventurer to the main team.
+     *
+     * The adventurer must not be null, the main team must not be full,
+     * and the adventurer must not already be in the main team.
+     * If the adventurer is currently in the reserve team, they are moved
+     * from the reserve team to the main team.
+     *
+     * @param adventurer the adventurer to add to the main team
+     */
     public void addToMain(Adventurer adventurer) {
         if (adventurer == null) {
             return;
@@ -46,6 +69,17 @@ public class AdventurerManager {
         System.out.println(adventurer.name + " was added to the main team.");
     }
 
+    /**
+     * Adds an adventurer to the reserve team.
+     *
+     * The adventurer must not be null, the reserve team must not be full,
+     * and the adventurer must not already be in the reserve team.
+     * If the adventurer is currently in the main team, they are moved to
+     * the reserve team, as long as at least one adventurer remains in the
+     * main team.
+     *
+     * @param adventurer the adventurer to add to the reserve team
+     */
     public void addToReserve(Adventurer adventurer) {
         if (adventurer == null) {
             return;
@@ -74,6 +108,14 @@ public class AdventurerManager {
         System.out.println(adventurer.name + " was added to the reserve team.");
     }
 
+    /**
+     * Removes an adventurer from the team.
+     *
+     * The adventurer is removed from both the main team and reserve team.
+     * However, the player cannot remove their last main team adventurer.
+     *
+     * @param adventurer the adventurer to remove
+     */
     public void removeAdventurer(Adventurer adventurer) {
         if (adventurer == null) {
             return;
@@ -90,6 +132,14 @@ public class AdventurerManager {
         System.out.println(adventurer.name + " was removed.");
     }
 
+    /**
+     * Retires an adventurer.
+     * Retiring an adventurer marks them as retired and removes them from
+     * both the main team and reserve team. The player cannot retire their
+     * last main team adventurer.
+     *
+     * @param adventurer the adventurer to retire
+     */
     public void retireAdventurer(Adventurer adventurer) {
         if (adventurer == null) {
             return;
@@ -101,6 +151,7 @@ public class AdventurerManager {
         }
 
         adventurer.retire();
+        retiredTeam.add(adventurer);
         mainTeam.remove(adventurer);
         reserveTeam.remove(adventurer);
 
@@ -123,6 +174,14 @@ public class AdventurerManager {
         this.reserveTeam = reserveTeam;
     }
 
+    /**
+     * Gets all adventurers who can still go on expeditions.
+     *
+     * This includes available adventurers from both the main team and
+     * reserve team.
+     *
+     * @return a list of adventurers who can still go on expeditions
+     */
     public ArrayList<Adventurer> getAvailableAdventurers() {
         ArrayList<Adventurer> availableAdventurers = new ArrayList<>();
 
@@ -141,6 +200,13 @@ public class AdventurerManager {
         return availableAdventurers;
     }
 
+    /**
+     * Calculates the total stamina of the main team.
+     *
+     * Only adventurers who can still go on expeditions are counted.
+     *
+     * @return the total stamina of the available main team adventurers
+     */
     public int getTotalStamina() {
         int total = 0;
 
@@ -153,6 +219,13 @@ public class AdventurerManager {
         return total;
     }
 
+    /**
+     * Calculates the total perception of the main team.
+     *
+     * Only adventurers who can still go on expeditions are counted.
+     *
+     * @return the total perception of the available main team adventurers
+     */
     public int getTotalPerception() {
         int total = 0;
 
@@ -165,6 +238,13 @@ public class AdventurerManager {
         return total;
     }
 
+    /**
+     * Calculates the total pay required for the main team.
+     *
+     * Only adventurers who can still go on expeditions are counted.
+     *
+     * @return the total pay of the available main team adventurers
+     */
     public double getTotalPay() {
         double total = 0;
 
@@ -177,6 +257,13 @@ public class AdventurerManager {
         return total;
     }
 
+    /**
+     * Updates the main team after completing an expedition.
+     *
+     * Each available main team adventurer has their expedition count increased.
+     * If an adventurer reaches their maximum number of expeditions, they are
+     * added to a temporary retirement list and retired after the loop.
+     */
     public void completeExpeditionForTeam() {
         ArrayList<Adventurer> toRetire = new ArrayList<>();
 
@@ -195,21 +282,45 @@ public class AdventurerManager {
         }
     }
 
-    public Adventurer generateNewAdventurer() {
+    /**
+     * Generates a random new adventurer.
+     *
+     * The generated adventurer can be a Warrior, Mage, Marksman, or Rogue.
+     * Their stats increase by 10% for each completed expedition, while their pay
+     * decreases by 10% for each completed expedition.
+     *
+     * @param completedExpeditions the number of expeditions already completed
+     * @return a randomly generated adventurer with scaled stats and pay
+     */
+    public Adventurer generateNewAdventurer(int completedExpeditions) {
         int choice = random.nextInt(4);
         int number = random.nextInt(900) + 100;
 
+        Adventurer adventurer;
+
         if (choice == 0) {
-            return new Warrior("Warrior" + number);
+            adventurer = new Warrior("Warrior" + number);
         } else if (choice == 1) {
-            return new Mage("Mage" + number);
+            adventurer = new Mage("Mage" + number);
         } else if (choice == 2) {
-            return new Marksman("Marksman" + number);
+            adventurer = new Marksman("Marksman" + number);
         } else {
-            return new Rogue("Rogue" + number);
+            adventurer = new Rogue("Rogue" + number);
         }
+
+        double statMultiplier = 1 + (completedExpeditions * 0.10);
+        double payMultiplier = 1 - (completedExpeditions * 0.10);
+
+        adventurer.stamina = (int) (adventurer.stamina * statMultiplier);
+        adventurer.perception = (int) (adventurer.perception * statMultiplier);
+        adventurer.pay = adventurer.pay * payMultiplier;
+
+        return adventurer;
     }
 
+    /**
+     * Displays all adventurers currently in the main team.
+     */
     public void displayMainTeam() {
         System.out.println("=== Main Team ===");
 
@@ -223,6 +334,9 @@ public class AdventurerManager {
         }
     }
 
+    /**
+     * Displays all adventurers currently in the reserve team.
+     */
     public void displayReserveTeam() {
         System.out.println("=== Reserve Team ===");
 

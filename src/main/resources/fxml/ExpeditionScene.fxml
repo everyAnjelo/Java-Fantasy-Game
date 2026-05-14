@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="655.0" prefWidth="635.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <HBox prefHeight="74.0" prefWidth="635.0" style="-fx-background-color: #f2f2f2; -fx-border-color: transparent transparent #9a9a9a transparent;" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane prefHeight="74.0" prefWidth="535.0">
+               <children>
+                  <Label fx:id="expeditionNameLabel" layoutX="24.0" layoutY="19.0" text="Expedition Name">
+                     <font>
+                        <Font size="28.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="74.0" prefWidth="100.0">
+               <children>
+                  <MenuButton fx:id="expeditionMenuButton" layoutX="18.0" layoutY="20.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="60.0" text="☰">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Exit" />
+                    </items>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </MenuButton>
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <VBox prefHeight="581.0" prefWidth="635.0" spacing="12.0" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets bottom="16.0" left="18.0" right="18.0" top="16.0" />
+         </padding>
+         <children>
+            <AnchorPane prefHeight="58.0" prefWidth="599.0" style="-fx-background-color: #f7f7f7; -fx-border-color: #bcbcbc; -fx-border-radius: 3; -fx-background-radius: 3;">
+               <children>
+                  <Label fx:id="totalStaminaLabel" layoutX="28.0" layoutY="15.0" text="Total Stamina: 0">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="totalPerceptionLabel" layoutX="233.0" layoutY="15.0" text="Total Perception: 0">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="numberOfCompeletedExpedition" layoutX="438.0" layoutY="15.0" text="Finisged Expedition: 0">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="295.0" prefWidth="599.0" style="-fx-background-color: #f7f7f7; -fx-border-color: #bcbcbc; -fx-border-radius: 3; -fx-background-radius: 3;">
+               <children>
+                  <Label layoutX="20.0" layoutY="18.0" text="Expedition Event">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="16.0" layoutY="55.0" prefWidth="565.0" />
+                  <Label fx:id="descriptionLabel" layoutX="25.0" layoutY="82.0" prefHeight="178.0" prefWidth="548.0" text="Your expedition question or event description will appear here. Example: Your team finds a dark cave. Do you want to enter carefully or rush inside?" wrapText="true">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <Button fx:id="optionOneButton" mnemonicParsing="false" prefHeight="70.0" prefWidth="599.0" style="-fx-background-color: #f7f7f7; -fx-border-color: #bcbcbc; -fx-border-radius: 3; -fx-background-radius: 3;" text="Option 1">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="optionTwoButton" mnemonicParsing="false" prefHeight="70.0" prefWidth="599.0" style="-fx-background-color: #f7f7f7; -fx-border-color: #bcbcbc; -fx-border-radius: 3; -fx-background-radius: 3;" text="Option 2">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <AnchorPane prefHeight="35.0" prefWidth="599.0" />
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
