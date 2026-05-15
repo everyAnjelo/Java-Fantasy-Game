@@ -83,6 +83,70 @@ public class GuildHall {
         }
     }
 
+
+    /**
+     * Displays the four adventurer types the player can hire or pick from.
+     */
+    public void displayAdventurerTypes() {
+        System.out.println("1. Warrior | Stamina: 100 | Perception: 40 | Pay: 25 | Hiring Cost: 100");
+        System.out.println("2. Mage | Stamina: 70 | Perception: 90 | Pay: 35 | Hiring Cost: 130");
+        System.out.println("3. Marksman | Stamina: 85 | Perception: 100 | Pay: 30 | Hiring Cost: 120");
+        System.out.println("4. Rogue | Stamina: 80 | Perception: 85 | Pay: 28 | Hiring Cost: 110");
+    }
+
+    /**
+     * Creates an adventurer from a menu choice and custom name.
+     *
+     * @param choice the selected adventurer type from 1 to 4
+     * @param name the adventurer name entered by the player
+     * @return the created adventurer, or null if the choice is invalid
+     */
+    public Adventurer createAdventurer(int choice, String name) {
+        if (name == null || name.isBlank()) {
+            name = "Adventurer";
+        }
+
+        if (choice == 1) {
+            return new Warrior(name);
+        } else if (choice == 2) {
+            return new Mage(name);
+        } else if (choice == 3) {
+            return new Marksman(name);
+        } else if (choice == 4) {
+            return new Rogue(name);
+        }
+
+        return null;
+    }
+
+    /**
+     * Refreshes the adventurers for hire after a round.
+     */
+    public void refreshAdventurers() {
+        generateStartingAdventurers();
+    }
+
+    /**
+     * Gets the cheapest hiring cost currently available in the guild hall.
+     *
+     * @return the lowest hiring cost from the available adventurers
+     */
+    public double getCheapestHiringCost() {
+        if (availableAdventurers.isEmpty()) {
+            return 0;
+        }
+
+        double cheapest = availableAdventurers.get(0).getHiringCost();
+
+        for (Adventurer adventurer : availableAdventurers) {
+            if (adventurer.getHiringCost() < cheapest) {
+                cheapest = adventurer.getHiringCost();
+            }
+        }
+
+        return cheapest;
+    }
+
     public ArrayList<Adventurer> getAvailableAdventurers() {
         return availableAdventurers;
     }
