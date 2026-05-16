@@ -49,7 +49,7 @@ public class GameEnvironment {
 
         guildName = askGuildName();
         totalExpeditions = askExpeditionCount();
-        difficulty = askDifficulty():
+        difficulty = askDifficulty();
 
         if (difficulty == Difficulty.EASY) {
             gold = 500;
@@ -173,9 +173,75 @@ public class GameEnvironment {
     }
 
     private void openGuildHall() {
+        boolean hiring = true;
+
+        while (hiring && isRunning) {
+            System.out.println();
+            System.out.println("=== Guild Hall ===");
+            System.out.println("Gold: " + gold);
+            guildHall.displayAvailableAdventurers();
+            System.out.println((guildHall.getAvailableAdventurers().size() + 1) + ". Leave Guild Hall");
+            System.out.print("Choose: ");
+
+            int choice = readInt();
+
+            if (choice == guildHall.getAvailableAdventurers().size() + 1) {
+                hiring = false;
+            } else if (choice >= 1 && choice <= guildHall.getAvailableAdventurers().size()) {
+                hireAdventurer(choice);
+
+                if (gold <= 0) {
+                    gold = 0;
+                    System.out.println("Your guild ran out of gold.");
+                    finishGame(false);
+                    return;
+                }
+
+            } else {
+                System.out.println("Invalid choice.");
+            }
+        }
+    }
+
+    private void hireAdventurer(int choice) {
+        if (choice < 1 || choice > guildHall.getAvailableAdventurers().size()) {
+            System.out.println("Invalid adventurer.");
+            return;
+        }
+
+        Adventurer adventurer = guildHall.getAvailableAdventurers().get(choice - 1);
+
+        System.out.print("Enter adventurer name: ");
+        String name = scanner.nextLine();
+        if (!name.isBlank()) {
+            adventurer.setName(name);
+        }
+
+        if (gold < adventurer.getHiringCost()) {
+            System.out.println("Not enough gold to hire " + adventurer.getName() + ".");
+            return;
+        }
+
+        gold -= adventurer.getHiringCost();
+        guildHall.getAvailableAdventurers().remove(choice - 1);
+
+        if (adventurerManager.getMainTeam().size() < adventurerManager.getMaxMainTeam()) {
+            adventurerManager.addToMain(adventurer);
+        } else {
+            adventurerManager.addToReserve(adventurer);
+        }
+
+        System.out.println(adventurer.getName() + " was hired.");
     }
 
     private void viewGameStatus() {
+        System.out.println();
+        System.out.println("=== Game Status ===");
+        System.out.println("Guild: " + guildName);
+        System.out.println("Gold: " + gold);
+        System.out.println("Difficulty: " + difficulty);
+        System.out.println("Expeditions completed: " + expeditionsCompleted + "/" + totalExpeditions);
+        System.out.println("Expeditions remaining: " + (totalExpeditions - expeditionsCompleted));
     }
 
     private void showMainMenu() {
@@ -191,10 +257,51 @@ public class GameEnvironment {
     }
 
 
-    private void finishGame(boolean result) {
+    private void finishGame(boolean won) {
+        System.out.println();
+        System.out.println("=== Game Finished ===");
+        System.out.println("Guild Name: " + guildName);
+
+        if (won) {
+            System.out.println("Result: You won! You completed all expeditions.");
+        } else {
+            System.out.println("Result: You lost.");
+        }
+
+        System.out.println("Selected expeditions: " + totalExpeditions);
+        System.out.println("Expeditions completed: " + expeditionsCompleted);
+        System.out.println("Final gold: " + gold);
+        System.out.println("Total gold gained: " + totalGoldGained);
+        System.out.println("Score: " + score);
+
+        isRunning = false;
     }
 
     private void chooseStartingAdventurers() {
+        System.out.println();
+        System.out.println("=== Choose 3 Starting Adventurers ===");
+        System.out.println("Starting adventurers are free.");
+
+        while(adventurerManager.getMainTeam().size() < 3){
+            guildHall.displayAdventurerTypes();
+
+            System.out.print("Choose adventurer " + (adventurerManager.getMainTeam().size() + 1) + " of 3: ");
+            int choice = readInt();
+
+            System.out.print("Enter adventurer name: ");
+            String name = scanner.nextLine();
+
+            Adventurer adventurer = guildHall.createAdventurer(choice, name);
+
+            if (adventurer == null) {
+                System.out.println("Invalid adventurer choice.");
+            } else {
+                adventurerManager.addToMain(adventurer);
+                System.out.println(adventurer.getName() + " joined your starting party for free.");
+            }
+
+        }
+
     }
 
     private int readInt() {
