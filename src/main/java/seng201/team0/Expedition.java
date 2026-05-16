@@ -9,16 +9,18 @@ public class Expedition {
     private int staminaRequired;
     private int perceptionRequired;
     private double reward;
+    private int numberOfEvents;
     private EventType eventType;
 
 //    Constructor for the Expeditions
-    public Expedition(String Name,String Description, int Stamina, int Perception, double Reward )
+    public Expedition(String Name,String Description, int Stamina, int Perception, double Reward, EventType eventType)
     {
         this.name = Name;
         this.description = Description;
         this.staminaRequired = Stamina;
         this.perceptionRequired = Perception;
         this.reward = Reward;
+        this.eventType = eventType;
 
 
     }
@@ -74,7 +76,7 @@ public class Expedition {
     }
 
     //Calculates the number of Events for the Expedition based on stamina
-    public int numberOfEvents(int TotalStamina)
+    public void generateNumberOfEvents(int TotalStamina)
     {
         //Int for dividing the EventTotal, Creating a new Event total if TotalStamina is too low
         int EventDivder = 0;
@@ -84,7 +86,7 @@ public class Expedition {
 
         if (TotalStamina >= this.staminaRequired)
         {
-            return EventTotal;
+            numberOfEvents = EventTotal;
         }
         else
         {
@@ -92,8 +94,8 @@ public class Expedition {
             EventDivder = this.staminaRequired / EventTotal;
 
 
-            //Returning the new event total which should be no lower than 1
-            return  TotalStamina / EventDivder ;
+
+            numberOfEvents = TotalStamina / EventDivder ;
 
 
         }
@@ -102,8 +104,19 @@ public class Expedition {
     }
 
 
+    public int getNumberOfEvents() {
+        return numberOfEvents;
+    }
 
+    public void setNumberOfEvents(int numberOfEvents) {
+        this.numberOfEvents = numberOfEvents;
+    }
 
+    public EventType getEventType() {
+        return eventType;
+    }
 
-
+    public void setEventType(EventType eventType) {
+        this.eventType = eventType;
+    }
 }

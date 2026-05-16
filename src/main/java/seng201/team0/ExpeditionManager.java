@@ -12,6 +12,11 @@ public class ExpeditionManager {
 
     //The current Expedition the player has chosen and is working on
     private Expedition currentExpedition;
+    //Current Event
+    private Event currentEvent;
+
+    private double totalingEarnings;
+
     private ArrayList<String> expeditionNames;
     private ArrayList<String> expeditionDescriptions;
     private ArrayList<Event> swampEvents;
@@ -195,13 +200,21 @@ public class ExpeditionManager {
 
                 String newName = expeditionNames.get(randomIndexForStrings);
                 String newDescription = expeditionDescriptions.get(randomIndexForStrings);
+                EventType newEventType = switch (randomIndexForStrings) {
+                    case 1 -> EventType.SWAMP;
+                    case 2 -> EventType.MOUNTAIN;
+                    case 3 -> EventType.FOREST;
+                    default -> null;
+                };
 
-
-                Expedition newExpedition = new Expedition(newName,
+                Expedition newExpedition = new Expedition(
+                        newName,
                         newDescription,
                         (addToStamina * 15) + BASE_STAMINA_SCORE,
                         (addToPerception * 5) + BASE_PERCEPTION_SCORE,
-                        (addToPerception + addToStamina) * 2);
+                        (addToPerception + addToStamina) * 2,
+                        newEventType);
+
                 //Adds the New Expedition to the temporary Expedition list
                 tempExpeditionList.add(newExpedition);
 
@@ -211,25 +224,72 @@ public class ExpeditionManager {
         }
     }
 
+    public void chooseRandomEvent(EventType type)
+    {
+
+    }
 
     //Runs the Current Expedition that was choosen by the player
     public void startExpedition(ArrayList<Adventurer> Party) {
         //a total for the amount of gold found on the Expedition
         int ExpeditionGoldRewards = 0;
-        int numberofEvents = 0;
+
 
         int partyStamina = 0;
-        int i = 0;
         for (Adventurer adventurer : Party) {
             partyStamina += adventurer.stamina;
         }
 
-        numberofEvents = currentExpedition.numberOfEvents(partyStamina);
+        currentExpedition.generateNumberOfEvents(partyStamina);
 
 
     }
 
+    //Runs the next event in an expedition
+    public void nextEvent( int numberofEvents, ArrayList<Adventurer> Party)
+    {
+        Random r = new Random();
 
+        if (numberofEvents <= 0)
+        {
+            endExpedition();
+            return;
+        }
+
+
+        EventType eventDecider = currentExpedition.getEventType();
+        switch (eventDecider)
+        {
+            case SWAMP:
+                currentEvent = swampEvents.get(r.nextInt(swampEvents.size()));
+                break;
+            case MOUNTAIN:
+                currentEvent = mountainEvents.get(r.nextInt(mountainEvents.size()));
+                break;
+            case FOREST:
+                currentEvent = forestEvents.get(r.nextInt(forestEvents.size()));
+                break;
+        }
+
+        currentEvent.setParty(Party);
+        int partyPerception = 0;
+
+        for (Adventurer adventurer : Party)
+        {
+            partyPerception += adventurer.getPerception();
+        }
+        currentEvent.setPartyPerception(partyPerception);
+
+        currentEvent.setPerceptionRequired(currentExpedition.getPerceptionRequired());
+
+
+
+    }
+
+    public void endExpedition()
+    {
+
+    }
 
 
 
@@ -255,5 +315,21 @@ public class ExpeditionManager {
 
     public void setMountainEvents(ArrayList<Event> mountainEvents) {
         this.mountainEvents = mountainEvents;
+    }
+
+    public Event getCurrentEvent() {
+        return currentEvent;
+    }
+
+    public void setCurrentEvent(Event currentEvent) {
+        this.currentEvent = currentEvent;
+    }
+
+    public double getTotalingEarnings() {
+        return totalingEarnings;
+    }
+
+    public void setTotalingEarnings(double totalingEarnings) {
+        this.totalingEarnings = totalingEarnings;
     }
 }

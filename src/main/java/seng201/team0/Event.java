@@ -15,7 +15,12 @@ public class Event {
     // Base reward for the Event
     private double reward = 0.0;
 
-    //possible Item reward for lucky players
+    private int partyPerception;
+
+    private int perceptionRequired;
+
+    private ArrayList<Adventurer> Party;
+
 
 
     public Event(String description, String optionOne, String optionTwo, double reward)
@@ -47,6 +52,17 @@ public class Event {
     {
         this.reward = reward;
     }
+    public void setParty(ArrayList<Adventurer> party) {
+        Party = party;
+    }
+
+    public void setPartyPerception(int partyPerception) {
+        this.partyPerception = partyPerception;
+    }
+
+    public void setPerceptionRequired(int perceptionRequired) {
+        this.perceptionRequired = perceptionRequired;
+    }
 
 
 
@@ -74,9 +90,11 @@ public class Event {
 
 
     //risky option, way to get rewards but also can lose stat points or extra events
-    public double chooseOptionOne(int TotalPerception, int perceptionRequired , ArrayList<Adventurer> Party)
+    public void chooseOptionOne(ExpeditionManager expeditionManager)
     {
-        int tempPerception = TotalPerception;
+
+
+        int tempPerception = partyPerception;
 
         double tempReward = reward;
 
@@ -94,7 +112,7 @@ public class Event {
             tempPerception =- perceptionRequired;
             additivePercentage += 20;
         }
-
+        expeditionManager.setNumberOfExpeditions(expeditionManager.getNumberOfExpeditions() - 1);
         if(rolledPercentage < additivePercentage + basePercentage)
         {
             if(additivePercentage + basePercentage >= 80)
@@ -109,7 +127,8 @@ public class Event {
             {
                 tempReward += reward;
             }
-            return tempReward;
+
+            expeditionManager.setTotalingEarnings(expeditionManager.getTotalingEarnings() + tempReward);
 
         }
         else
@@ -119,7 +138,6 @@ public class Event {
                 Party.get(i).addPerception(-5);
                 Party.get(i).addStamina(-5);
             }
-            return 0;
 
         }
 
@@ -146,6 +164,7 @@ public class Event {
     {
         return "You Lost";
     }
+
 
 
 }
