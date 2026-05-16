@@ -211,25 +211,26 @@ public class ExpeditionManager {
         }
     }
 
-    //Runs events from the current expedition
-    public void runEvents()
-    {
-
-    }
-
-
-    //Calculates the rewards for an expedition based on the perception requirement for the Expedition and the total perception of the
-    //Adventuring party
-    public void calculateRewards(int TotalPerception) {
-
-    }
 
     //Runs the Current Expedition that was choosen by the player
     public void startExpedition(ArrayList<Adventurer> Party) {
         //a total for the amount of gold found on the Expedition
         int ExpeditionGoldRewards = 0;
-        //ArrayList<Item> ItemRewards;
+        int numberofEvents = 0;
+
+        int partyStamina = 0;
+        int i = 0;
+        for (Adventurer adventurer : Party) {
+            partyStamina += adventurer.stamina;
+        }
+
+        numberofEvents = currentExpedition.numberOfEvents(partyStamina);
+
+
     }
+
+
+
 
 
     public ArrayList<Event> getForestEvents() {

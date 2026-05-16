@@ -124,12 +124,6 @@ public class Event {
         }
 
 
-
-
-
-        
-        //
-
     }
 
     public void chooseOptionTwo(ExpeditionManager expeditionManager)
