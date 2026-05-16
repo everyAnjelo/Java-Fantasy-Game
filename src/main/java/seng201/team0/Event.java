@@ -13,15 +13,14 @@ public class Event {
     private double reward = 0.0;
 
     //possible Item reward for lucky players
-    private Item itemReward;
 
-    public Event(String description, String optionOne, String optionTwo, double reward, Item itemReward)
+
+    public Event(String description, String optionOne, String optionTwo, double reward)
     {
         this.description = description;
         this.optionOne = optionOne;
         this.optionTwo = optionTwo;
         this.reward = reward;
-        this.itemReward = itemReward;
 
 
     }
@@ -46,10 +45,7 @@ public class Event {
         this.reward = reward;
     }
 
-    public void setItemReward(Item itemReward)
-    {
-        this.itemReward = itemReward;
-    }
+
 
 
     public String getDescription()
@@ -72,10 +68,7 @@ public class Event {
         return reward;
     }
 
-    public Item getItemReward()
-    {
-        return itemReward;
-    }
+
 
     //risky option, way to get rewards but also can lose stat points or extra events
     public void chooseOptionOne(int TotalPerception, int perceptionRequired  )
