@@ -1,5 +1,8 @@
 package seng201.team0;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 public class Event {
     //Full text and description for the event including telling the player the plot and the decision they
     //have to make
@@ -71,10 +74,58 @@ public class Event {
 
 
     //risky option, way to get rewards but also can lose stat points or extra events
-    public void chooseOptionOne(int TotalPerception, int perceptionRequired  )
+    public double chooseOptionOne(int TotalPerception, int perceptionRequired , ArrayList<Adventurer> Party)
     {
+        int tempPerception = TotalPerception;
+
+        double tempReward = reward;
+
+        Random r = new Random();
+        Random r2 = new Random();
+        int rolledPercentage = r2.nextInt(1, 101);
+
         //chance for a reward
-        int goodPercentage = 50;
+        int basePercentage = 30 + r.nextInt(1, 40);
+
+        int additivePercentage = 20;
+
+        while(tempPerception > perceptionRequired)
+        {
+            tempPerception =- perceptionRequired;
+            additivePercentage += 20;
+        }
+
+        if(rolledPercentage < additivePercentage + basePercentage)
+        {
+            if(additivePercentage + basePercentage >= 80)
+            {
+                for(int i = 0; i < Party.size(); i++)
+                {
+                    Party.get(i).addPerception(5);
+                    Party.get(i).addStamina(5);
+                }
+            }
+            if(additivePercentage + basePercentage >= 100)
+            {
+                tempReward += reward;
+            }
+            return tempReward;
+
+        }
+        else
+        {
+            for(int i = 0; i < Party.size(); i++)
+            {
+                Party.get(i).addPerception(-5);
+                Party.get(i).addStamina(-5);
+            }
+            return 0;
+
+        }
+
+
+
+
 
         
         //
@@ -83,7 +134,7 @@ public class Event {
 
     public void chooseOptionTwo(ExpeditionManager expeditionManager)
     {
-        //run away
+        //run
         //Takes away an extra event if the number of events is greater than 0
         if (expeditionManager.getNumberOfExpeditions() > 0 )
         {

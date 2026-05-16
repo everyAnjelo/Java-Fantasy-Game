@@ -147,10 +147,9 @@ public class ExpeditionManager {
                 50));
 
 
-
-
-
-
+        setSwampEvents(tempSwampEvents);
+        setMountainEvents(tempMountainEvents);
+        setForestEvents(tempForestEvents);
 
     }
 
