@@ -9,7 +9,7 @@ public class ExpeditionManager {
     protected final int BASE_STAMINA_SCORE = 250;
     protected final int BASE_EXPEDITION_ARRAY_SIZE = 3;
     private ArrayList<Expedition> Expeditions;
-
+    private GameEnvironment gameenvironment;
     //The current Expedition the player has chosen and is working on
     private Expedition currentExpedition;
     //Current Event
@@ -25,8 +25,9 @@ public class ExpeditionManager {
     private int numberOfExpeditions = 0;
 
     //Constructor for ExpeditionManager for if hard coding Expedition array is required, should use generateExpeditions
-    public ExpeditionManager(ArrayList<Expedition> Expeditions) {
+    public ExpeditionManager(ArrayList<Expedition> Expeditions, GameEnvironment gameEnvironment) {
         this.Expeditions = Expeditions;
+        this.gameenvironment = gameEnvironment;
     }
 
 
@@ -252,7 +253,7 @@ public class ExpeditionManager {
 
         if (numberofEvents <= 0)
         {
-            endExpedition();
+            endExpedition(Party);
             return;
         }
 
@@ -285,9 +286,20 @@ public class ExpeditionManager {
 
 
     }
-
-    public void endExpedition()
+    //adds the gold to the players earnings
+    public void endExpedition(ArrayList<Adventurer> Party)
     {
+        gameenvironment.gold = gameenvironment.gold + totalingEarnings;
+        gameenvironment.totalGoldGained = gameenvironment.totalGoldGained + totalingEarnings;
+        double adventurerPay = 0;
+        for(Adventurer adventurer : Party)
+        {
+            adventurerPay += adventurer.getPay();
+            adventurer.completeExpedition();
+        }
+
+        gameenvironment.gold = gameenvironment.gold - adventurerPay;
+
 
     }
 
