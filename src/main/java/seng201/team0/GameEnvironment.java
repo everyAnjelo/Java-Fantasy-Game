@@ -52,7 +52,7 @@ public class GameEnvironment {
         difficulty = askDifficulty();
 
         if (difficulty == Difficulty.EASY) {
-            gold = 500;
+            gold = 11000;
 
         } else {
             gold = 350;
@@ -167,6 +167,124 @@ public class GameEnvironment {
     }
 
     private void guildOverview() {
+        boolean viewing = true;
+
+        while (viewing && isRunning) {
+            System.out.println();
+            System.out.println("=== Guild Overview ===");
+            System.out.println("1. View adventurers and inventory");
+            System.out.println("2. Move reserve adventurer to main party");
+            System.out.println("3. Move main adventurer to reserve");
+            System.out.println("4. Retire adventurer");
+            System.out.println("5. Use/equip item");
+            System.out.println("6. Leave overview");
+            System.out.print("Choose: ");
+
+            int choice = readInt();
+
+            if (choice == 1) {
+                displayGuild();
+            } else if (choice == 2) {
+                moveReserveToMain();
+            } else if (choice == 3) {
+                moveMainToReserve();
+            } else if (choice == 4) {
+                retireAdventurer();
+            } else if (choice == 5) {
+                useItem();
+            } else if (choice == 6) {
+                viewing = false;
+            } else {
+                System.out.println("Invalid choice.");
+            }
+        }
+    }
+    private void retireAdventurer(){
+        adventurerManager.displayMainTeam();
+        adventurerManager.displayReserveTeam();
+
+        System.out.println("Retire from:");
+        System.out.println("1. Main party");
+        System.out.println("2. Reserve party");
+        System.out.print("Choose: ");
+
+        int listChoice = readInt();
+
+        if (listChoice == 1) {
+            System.out.print("Choose main adventurer: ");
+            int index = readInt();
+
+            if (index >= 1 && index <= adventurerManager.getMainTeam().size()) {
+                Adventurer adventurer = adventurerManager.getMainTeam().get(index - 1);
+                adventurerManager.retireAdventurer(adventurer);
+            } else {
+                System.out.println("Invalid adventurer.");
+            }
+
+        } else if (listChoice == 2) {
+            System.out.print("Choose reserve adventurer: ");
+            int index = readInt();
+
+            if (index >= 1 && index <= adventurerManager.getReserveTeam().size()) {
+                Adventurer adventurer = adventurerManager.getReserveTeam().get(index - 1);
+                adventurerManager.retireAdventurer(adventurer);
+            } else {
+                System.out.println("Invalid adventurer.");
+            }
+
+        } else {
+            System.out.println("Invalid choice.");
+        }
+
+    }
+
+    private void useItem() {
+        if (inventory.isEmpty()) {
+            System.out.println("Inventory is empty.");
+            return;
+        }
+
+        inventory.displayItems();
+        System.out.print("Choose item: ");
+        int itemChoice = readInt();
+
+    }
+
+    private void moveMainToReserve() {
+        adventurerManager.displayReserveTeam();
+
+        if (adventurerManager.getReserveTeam().isEmpty()) {
+            return;
+        }
+
+        System.out.print("Choose reserve adventurer: ");
+        int index = readInt();
+
+        if (index >= 1 && index <= adventurerManager.getReserveTeam().size()) {
+            Adventurer adventurer = adventurerManager.getReserveTeam().get(index - 1);
+            adventurerManager.addToMain(adventurer);
+        } else {
+            System.out.println("Invalid choice.");
+        }    }
+
+    private void moveReserveToMain() {
+        adventurerManager.displayMainTeam();
+
+        System.out.print("Choose main adventurer: ");
+        int index = readInt();
+
+        if (index >= 1 && index <= adventurerManager.getMainTeam().size()) {
+            Adventurer adventurer = adventurerManager.getMainTeam().get(index - 1);
+            adventurerManager.addToReserve(adventurer);
+        } else {
+            System.out.println("Invalid choice.");
+        }
+    }
+
+    private void displayGuild() {
+        adventurerManager.displayMainTeam();
+        adventurerManager.displayReserveTeam();
+        inventory.displayItems();
     }
 
     private void openMarket() {
@@ -187,7 +305,8 @@ public class GameEnvironment {
 
             if (choice == guildHall.getAvailableAdventurers().size() + 1) {
                 hiring = false;
-            } else if (choice >= 1 && choice <= guildHall.getAvailableAdventurers().size()) {
+            }
+            else if (choice >= 1 && choice <= guildHall.getAvailableAdventurers().size()) {
                 hireAdventurer(choice);
 
                 if (gold <= 0) {
@@ -197,7 +316,8 @@ public class GameEnvironment {
                     return;
                 }
 
-            } else {
+            }
+            else {
                 System.out.println("Invalid choice.");
             }
         }
@@ -223,7 +343,9 @@ public class GameEnvironment {
         }
 
         gold -= adventurer.getHiringCost();
-        guildHall.getAvailableAdventurers().remove(choice - 1);
+
+        // thinking if we should remove or not on shop the adventurer
+        //guildHall.getAvailableAdventurers().remove(choice - 1);
 
         if (adventurerManager.getMainTeam().size() < adventurerManager.getMaxMainTeam()) {
             adventurerManager.addToMain(adventurer);
