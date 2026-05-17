@@ -9,7 +9,6 @@ public class Expedition {
     private int staminaRequired;
     private int perceptionRequired;
     private double reward;
-    private int numberOfEvents;
     private EventType eventType;
 
 //    Constructor for the Expeditions
@@ -76,7 +75,7 @@ public class Expedition {
     }
 
     //Calculates the number of Events for the Expedition based on stamina
-    public void generateNumberOfEvents(int TotalStamina)
+    public int generateNumberOfEvents(int TotalStamina)
     {
         //Int for dividing the EventTotal, Creating a new Event total if TotalStamina is too low
         int EventDivder = 0;
@@ -86,7 +85,7 @@ public class Expedition {
 
         if (TotalStamina >= this.staminaRequired)
         {
-            numberOfEvents = EventTotal;
+            return EventTotal;
         }
         else
         {
@@ -95,7 +94,7 @@ public class Expedition {
 
 
 
-            numberOfEvents = TotalStamina / EventDivder ;
+            return (TotalStamina / EventDivder) ;
 
 
         }
@@ -104,13 +103,7 @@ public class Expedition {
     }
 
 
-    public int getNumberOfEvents() {
-        return numberOfEvents;
-    }
 
-    public void setNumberOfEvents(int numberOfEvents) {
-        this.numberOfEvents = numberOfEvents;
-    }
 
     public EventType getEventType() {
         return eventType;

@@ -21,6 +21,8 @@ public class Event {
 
     private ArrayList<Adventurer> Party;
 
+    private ExpeditionManager expeditionManager;
+
 
 
     public Event(String description, String optionOne, String optionTwo, double reward)
@@ -29,8 +31,6 @@ public class Event {
         this.optionOne = optionOne;
         this.optionTwo = optionTwo;
         this.reward = reward;
-
-
     }
 
     public void setDescription(String description)
@@ -64,6 +64,9 @@ public class Event {
         this.perceptionRequired = perceptionRequired;
     }
 
+    public void setExpeditionManager(ExpeditionManager expeditionManager) {
+        this.expeditionManager = expeditionManager;
+    }
 
 
 
@@ -90,7 +93,7 @@ public class Event {
 
 
     //risky option, way to get rewards but also can lose stat points or extra events
-    public void chooseOptionOne(ExpeditionManager expeditionManager)
+    public void chooseOptionOne()
     {
 
 
@@ -112,15 +115,19 @@ public class Event {
             tempPerception =- perceptionRequired;
             additivePercentage += 20;
         }
-        expeditionManager.setNumberOfExpeditions(expeditionManager.getNumberOfExpeditions() - 1);
+
+        if (expeditionManager.getNumberOfExpeditions() > 0 )
+        {
+            expeditionManager.setNumberOfEvents(expeditionManager.getNumberOfEvents() - 1);;
+        }
+
         if(rolledPercentage < additivePercentage + basePercentage)
         {
             if(additivePercentage + basePercentage >= 80)
             {
-                for(int i = 0; i < Party.size(); i++)
-                {
-                    Party.get(i).addPerception(5);
-                    Party.get(i).addStamina(5);
+                for (Adventurer adventurer : Party) {
+                    adventurer.addPerception(5);
+                    adventurer.addStamina(5);
                 }
             }
             if(additivePercentage + basePercentage >= 100)
@@ -133,10 +140,9 @@ public class Event {
         }
         else
         {
-            for(int i = 0; i < Party.size(); i++)
-            {
-                Party.get(i).addPerception(-5);
-                Party.get(i).addStamina(-5);
+            for (Adventurer adventurer : Party) {
+                adventurer.addPerception(-5);
+                adventurer.addStamina(-5);
             }
 
         }
@@ -150,7 +156,7 @@ public class Event {
         //Takes away an extra event if the number of events is greater than 0
         if (expeditionManager.getNumberOfExpeditions() > 0 )
         {
-            expeditionManager.setNumberOfExpeditions(expeditionManager.getNumberOfExpeditions() - 1);
+            expeditionManager.setNumberOfEvents(expeditionManager.getNumberOfEvents() - 1);;
         }
 
     }

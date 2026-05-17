@@ -9,7 +9,7 @@ public class ExpeditionManager {
     protected final int BASE_STAMINA_SCORE = 250;
     protected final int BASE_EXPEDITION_ARRAY_SIZE = 3;
     private ArrayList<Expedition> Expeditions;
-    private GameEnvironment gameenvironment;
+    private final GameEnvironment gameenvironment;
     //The current Expedition the player has chosen and is working on
     private Expedition currentExpedition;
     //Current Event
@@ -23,10 +23,11 @@ public class ExpeditionManager {
     private ArrayList<Event> forestEvents;
     private ArrayList<Event> mountainEvents;
     private int numberOfExpeditions = 0;
+    private int numberOfEvents = 0;
 
     //Constructor for ExpeditionManager for if hard coding Expedition array is required, should use generateExpeditions
-    public ExpeditionManager(ArrayList<Expedition> Expeditions, GameEnvironment gameEnvironment) {
-        this.Expeditions = Expeditions;
+    public ExpeditionManager(GameEnvironment gameEnvironment) {
+
         this.gameenvironment = gameEnvironment;
     }
 
@@ -225,10 +226,6 @@ public class ExpeditionManager {
         }
     }
 
-    public void chooseRandomEvent(EventType type)
-    {
-
-    }
 
     //Runs the Current Expedition that was choosen by the player
     public void startExpedition(ArrayList<Adventurer> Party) {
@@ -241,7 +238,7 @@ public class ExpeditionManager {
             partyStamina += adventurer.stamina;
         }
 
-        currentExpedition.generateNumberOfEvents(partyStamina);
+        this.numberOfEvents = currentExpedition.generateNumberOfEvents(partyStamina);
 
 
     }
@@ -273,6 +270,7 @@ public class ExpeditionManager {
         }
 
         currentEvent.setParty(Party);
+        currentEvent.setExpeditionManager(this);
         int partyPerception = 0;
 
         for (Adventurer adventurer : Party)
@@ -343,5 +341,13 @@ public class ExpeditionManager {
 
     public void setTotalingEarnings(double totalingEarnings) {
         this.totalingEarnings = totalingEarnings;
+    }
+
+    public int getNumberOfEvents() {
+        return numberOfEvents;
+    }
+
+    public void setNumberOfEvents(int numberOfEvents) {
+        this.numberOfEvents = numberOfEvents;
     }
 }
