@@ -248,6 +248,62 @@ public class GameEnvironment {
         System.out.print("Choose item: ");
         int itemChoice = readInt();
 
+        if (itemChoice < 1 || itemChoice > inventory.getSize()) {
+            System.out.println("Invalid item.");
+            return;
+        }
+
+        Item item = inventory.getItem(itemChoice - 1);
+
+        System.out.println("Use item on:");
+        System.out.println("1. Main party adventurer");
+        System.out.println("2. Reserve adventurer");
+        System.out.print("Choose: ");
+
+        int listChoice = readInt();
+
+        Adventurer adventurer = null;
+
+        if (listChoice == 1) {
+            adventurerManager.displayMainTeam();
+
+            System.out.print("Choose adventurer: ");
+            int advChoice = readInt();
+
+            if (advChoice >= 1 && advChoice <= adventurerManager.getMainTeam().size()) {
+                adventurer = adventurerManager.getMainTeam().get(advChoice - 1);
+            }
+
+        }
+        else if (listChoice == 2) {
+            adventurerManager.displayReserveTeam();
+
+            System.out.print("Choose adventurer: ");
+            int advChoice = readInt();
+
+            if (advChoice >= 1 && advChoice <= adventurerManager.getReserveTeam().size()) {
+                adventurer = adventurerManager.getReserveTeam().get(advChoice - 1);
+            }
+        }
+
+        if (adventurer == null) {
+            System.out.println("Invalid adventurer.");
+            return;
+        }
+
+        if (!item.canBeUsedBy(adventurer)) {
+            System.out.println(item.getName() + " cannot be used by " + adventurer.getRole());
+            return;
+        }
+
+        if (item.getType() == ItemType.POTION) {
+            adventurer.usePotion(item);
+            inventory.removeItem(item);
+        } else {
+            adventurer.equipWeapon(item);
+            inventory.removeItem(item);
+        }
+
     }
 
     private void moveMainToReserve() {
@@ -288,6 +344,76 @@ public class GameEnvironment {
     }
 
     private void openMarket() {
+        boolean shopping = true;
+
+        while (shopping && isRunning) {
+            System.out.println();
+            System.out.println("=== Market ===");
+            System.out.println("Gold: " + gold);
+            System.out.println("1. Buy item");
+            System.out.println("2. Sell item");
+            System.out.println("3. Leave market");
+            System.out.print("Choose: ");
+
+            int choice = readInt();
+
+            if (choice == 1) {
+                buyItem();
+
+                if (gold <= 0) {
+                    gold = 0;
+                    System.out.println("Your guild ran out of gold.");
+                    finishGame(false);
+                    return;
+                }
+
+            }
+            else if (choice == 2) {
+                sellItem();
+            }
+
+            else if (choice == 3) {
+                shopping = false;
+            }
+
+            else {
+                System.out.println("Invalid choice.");
+            }
+        }
+    }
+
+    public void buyItem() {
+        shop.displayItems();
+
+        System.out.print("Choose item to buy: ");
+        int choice = readInt();
+
+        if (choice < 1 || choice > shop.getAvailableItems().size()) {
+            System.out.println("Invalid item.");
+            return;
+        }
+
+        Item item = shop.getAvailableItems().get(choice - 1);
+        shop.buyItem(item, this);
+    }
+
+    public void sellItem() {
+        inventory.displayItems();
+
+        if (inventory.isEmpty()) {
+            return;
+        }
+
+        System.out.print("Choose item to sell: ");
+        int choice = readInt();
+
+        if (choice < 1 || choice > inventory.getSize()) {
+            System.out.println("Invalid item.");
+            return;
+        }
+
+        Item item = inventory.getItem(choice - 1);
+        shop.sellItem(item, this);
     }
 
     private void openGuildHall() {
