@@ -198,14 +198,14 @@ public class ExpeditionManager {
                 int addToStamina = (r.nextInt(10) + 1) * numberOfExpeditions;
 
                 //Code required for generating names and descriptions, possibly from a pre generated text file
-                int randomIndexForStrings = r.nextInt(1,4);
+                int randomIndexForStrings = r.nextInt(3);
 
                 String newName = expeditionNames.get(randomIndexForStrings);
                 String newDescription = expeditionDescriptions.get(randomIndexForStrings);
                 EventType newEventType = switch (randomIndexForStrings) {
-                    case 1 -> EventType.SWAMP;
-                    case 2 -> EventType.MOUNTAIN;
-                    case 3 -> EventType.FOREST;
+                    case 0 -> EventType.SWAMP;
+                    case 1 -> EventType.MOUNTAIN;
+                    case 2 -> EventType.FOREST;
                     default -> null;
                 };
 

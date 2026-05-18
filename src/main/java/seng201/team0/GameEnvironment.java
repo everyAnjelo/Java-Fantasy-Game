@@ -30,6 +30,7 @@ public class GameEnvironment {
         shop = new Shop();
         guildHall = new GuildHall();
         inventory = new Inventory();
+        expeditionManager = new ExpeditionManager(this);
 
 
         guildName = "";
@@ -164,8 +165,35 @@ public class GameEnvironment {
     }
 
     private void goOnExpedition() {
-    }
 
+
+        if (adventurerManager.getMainTeam().isEmpty()) {
+            System.out.println("You need at least one adventurer to go on an expedition.");
+            return;
+        }
+
+        expeditionManager.createAllEvents();
+        expeditionManager.generatePossibleExpeditions();
+
+        System.out.println();
+        System.out.println("=== Choose an Expedition ===");
+
+        for (int i = 0; i < expeditionManager.getExpeditions().size(); i++) {
+            Expedition expedition = expeditionManager.getExpeditions().get(i);
+
+            System.out.println((i + 1) + ". " + expedition.getName());
+            System.out.println("   Description: " + expedition.getDescription());
+            System.out.println("   Stamina Required: " + expedition.getStaminaRequired());
+            System.out.println("   Perception Required: " + expedition.getPerceptionRequired());
+            System.out.println("   Reward: " + expedition.getReward());
+            System.out.println();
+        }
+
+        System.out.print("Choose expedition: ");
+        int choice = readInt();
+
+
+    }
     private void guildOverview() {
         boolean viewing = true;
 
