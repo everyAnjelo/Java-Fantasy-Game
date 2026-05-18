@@ -3,7 +3,6 @@ package seng201.team0;
 import java.util.ArrayList;
 import java.util.Random;
 
-
 public class ExpeditionManager {
     protected final int BASE_PERCEPTION_SCORE = 60;
     protected final int BASE_STAMINA_SCORE = 250;
@@ -78,7 +77,7 @@ public class ExpeditionManager {
                 "Engage: Fight the Rotfangs for meat, hides, and possible treasure hidden in their nest.",
                 "Escape: Climb onto twisted mangrove roots and flee through the reeds before they surround you.",
                 10
-                ));
+        ));
         tempSwampEvents.add(new Event("The Poison Bloom\n" +
                 " A massive glowing flower opens nearby, releasing shimmering spores into the air.",
                 "Engage: Harvest the spores for alchemy ingredients while resisting hallucinations caused by the bloom.\n",
@@ -136,7 +135,7 @@ public class ExpeditionManager {
                 "Engage: Speak with the hermit to learn secrets about the mountain or receive a powerful charm.",
                 "Escape: Politely decline and continue before the weather worsens.",
                 10
-                ));
+        ));
         tempMountainEvents.add(new Event("Wyvern Shadow\n" +
                 " A massive winged shadow circles overhead, letting out a piercing screech.",
                 "Engage: Track the wyvern to its nest for treasure or glory.",
@@ -191,23 +190,27 @@ public class ExpeditionManager {
             //Temporary list for the Expeditions
             ArrayList<Expedition> tempExpeditionList = new ArrayList<>();
             int i = 0;
+
             while (tempExpeditionList.size() < BASE_EXPEDITION_ARRAY_SIZE) {
-                i += 1;
+
                 //Code for randomly generating Perception and Stamina requirements for Expeditions
                 int addToPerception = (r.nextInt(10) + 1) * numberOfExpeditions;
                 int addToStamina = (r.nextInt(10) + 1) * numberOfExpeditions;
 
                 //Code required for generating names and descriptions, possibly from a pre generated text file
-                int randomIndexForStrings = r.nextInt(3);
+//                int randomIndexForStrings = r.nextInt(0,3);
 
-                String newName = expeditionNames.get(randomIndexForStrings);
-                String newDescription = expeditionDescriptions.get(randomIndexForStrings);
-                EventType newEventType = switch (randomIndexForStrings) {
+
+
+                String newName = expeditionNames.get(i);
+                String newDescription = expeditionDescriptions.get(i);
+                EventType newEventType = switch (i) {
                     case 0 -> EventType.SWAMP;
                     case 1 -> EventType.MOUNTAIN;
                     case 2 -> EventType.FOREST;
                     default -> null;
                 };
+
 
                 Expedition newExpedition = new Expedition(
                         newName,
@@ -219,6 +222,8 @@ public class ExpeditionManager {
 
                 //Adds the New Expedition to the temporary Expedition list
                 tempExpeditionList.add(newExpedition);
+                i += 1;
+
 
             }
             //Sets the temporary list as the Expedition list
@@ -244,11 +249,11 @@ public class ExpeditionManager {
     }
 
     //Runs the next event in an expedition
-    public void nextEvent( int numberofEvents, ArrayList<Adventurer> Party)
+    public void nextEvent( ArrayList<Adventurer> Party)
     {
         Random r = new Random();
 
-        if (numberofEvents <= 0)
+        if (this.numberOfEvents <= 0)
         {
             endExpedition(Party);
             return;

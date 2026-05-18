@@ -112,13 +112,14 @@ public class Event {
 
         while(tempPerception > perceptionRequired)
         {
-            tempPerception =- perceptionRequired;
+            tempPerception = tempPerception - perceptionRequired;
             additivePercentage += 20;
         }
 
         if (expeditionManager.getNumberOfExpeditions() > 0 )
         {
-            expeditionManager.setNumberOfEvents(expeditionManager.getNumberOfEvents() - 1);;
+            int oldNumberOfEvents = expeditionManager.getNumberOfEvents();
+            expeditionManager.setNumberOfEvents(oldNumberOfEvents - 1);;
         }
 
         if(rolledPercentage < additivePercentage + basePercentage)
@@ -150,13 +151,14 @@ public class Event {
 
     }
 
-    public void chooseOptionTwo(ExpeditionManager expeditionManager)
+    public void chooseOptionTwo()
     {
         //run
         //Takes away an extra event if the number of events is greater than 0
         if (expeditionManager.getNumberOfExpeditions() > 0 )
         {
-            expeditionManager.setNumberOfEvents(expeditionManager.getNumberOfEvents() - 1);;
+            int oldNumberOfEvents = expeditionManager.getNumberOfEvents();
+            expeditionManager.setNumberOfEvents(oldNumberOfEvents - 1);;
         }
 
     }

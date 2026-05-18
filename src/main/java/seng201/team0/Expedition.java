@@ -11,8 +11,8 @@ public class Expedition {
     private double reward;
     private EventType eventType;
 
-//    Constructor for the Expeditions
-    public Expedition(String Name,String Description, int Stamina, int Perception, double Reward, EventType eventType)
+    //    Constructor for the Expeditions
+    public Expedition(String Name, String Description, int Stamina, int Perception, double Reward, EventType eventType)
     {
         this.name = Name;
         this.description = Description;

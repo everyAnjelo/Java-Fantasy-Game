@@ -73,6 +73,7 @@ public class EventTest {
         assertEquals(85, adventurers.get(1).getStamina());
         assertEquals(45, adventurers.get(1).getPerception());
 
+        assertEquals(20.0, expeditionManager.getTotalingEarnings());
 
 
 
