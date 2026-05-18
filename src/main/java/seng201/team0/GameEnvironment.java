@@ -11,7 +11,7 @@ public class GameEnvironment {
 
     public double gold;
     public double totalGoldGained;
-    public int score;
+    // public int score;
     public boolean isRunning;
 
     public AdventurerManager adventurerManager;
@@ -40,7 +40,7 @@ public class GameEnvironment {
 
         gold = 0;
         totalGoldGained = 0;
-        score = 0;
+        // score = 0;
         isRunning = true;
 
 
@@ -166,7 +166,6 @@ public class GameEnvironment {
 
     private void goOnExpedition() {
 
-
         if (adventurerManager.getMainTeam().isEmpty()) {
             System.out.println("You need at least one adventurer to go on an expedition.");
             return;
@@ -182,17 +181,79 @@ public class GameEnvironment {
             Expedition expedition = expeditionManager.getExpeditions().get(i);
 
             System.out.println((i + 1) + ". " + expedition.getName());
-            System.out.println("   Description: " + expedition.getDescription());
-            System.out.println("   Stamina Required: " + expedition.getStaminaRequired());
-            System.out.println("   Perception Required: " + expedition.getPerceptionRequired());
-            System.out.println("   Reward: " + expedition.getReward());
+            System.out.println("Description: " + expedition.getDescription());
+            System.out.println("Stamina Required: " + expedition.getStaminaRequired());
+            System.out.println("Perception Required: " + expedition.getPerceptionRequired());
+            System.out.println("Reward: " + expedition.getReward());
             System.out.println();
         }
 
         System.out.print("Choose expedition: ");
         int choice = readInt();
 
+        if (choice < 1 || choice > expeditionManager.getExpeditions().size()) {
+            System.out.println("Invalid expedition choice.");
+            return;
+        }
 
+        Expedition chosenExpedition = expeditionManager.getExpeditions().get(choice - 1);
+        expeditionManager.setCurrentExpedition(chosenExpedition);
+
+        expeditionManager.setTotalingEarnings(0);
+
+        expeditionManager.startExpedition(adventurerManager.getMainTeam());
+
+        System.out.println();
+        System.out.println("You started: " + chosenExpedition.getName());
+        System.out.println("Events to complete: " + expeditionManager.getNumberOfEvents());
+
+        while (expeditionManager.getNumberOfEvents() > 0) {
+
+            expeditionManager.nextEvent(adventurerManager.getMainTeam());
+
+            Event event = expeditionManager.getCurrentEvent();
+
+            System.out.println();
+            System.out.println("=== Event ===");
+            System.out.println(event.getDescription());
+            System.out.println();
+            System.out.println("1. " + event.getOptionOne());
+            System.out.println("2. " + event.getOptionTwo());
+            System.out.print("Choose: ");
+
+            int eventChoice = readInt();
+
+            if (eventChoice == 1) {
+                event.chooseOptionOne();
+                System.out.println(event.successMessage());
+
+            } else if (eventChoice == 2) {
+                event.chooseOptionTwo();
+                System.out.println("You avoided the danger and moved on.");
+
+            } else {
+                System.out.println("Invalid choice. Your party wasted time.");
+            }
+
+            expeditionManager.setNumberOfEvents(expeditionManager.getNumberOfEvents() - 1);
+
+            System.out.println("Events left: " + expeditionManager.getNumberOfEvents());
+        }
+
+        expeditionManager.endExpedition(adventurerManager.getMainTeam());
+
+        expeditionsCompleted++;
+
+        guildHall.replaceAdventurersAfterExpedition(expeditionsCompleted);
+
+        expeditionManager.setCurrentExpedition(null);
+        expeditionManager.setExpeditions(null);
+
+        System.out.println();
+        System.out.println("Expedition completed!");
+        System.out.println("Gold earned from events: " + expeditionManager.getTotalingEarnings());
+        System.out.println("Current gold: " + gold);
+        System.out.println("Expeditions completed: " + expeditionsCompleted + "/" + totalExpeditions);
     }
     private void guildOverview() {
         boolean viewing = true;
@@ -548,7 +609,7 @@ public class GameEnvironment {
         System.out.println("Expeditions completed: " + expeditionsCompleted);
         System.out.println("Final gold: " + gold);
         System.out.println("Total gold gained: " + totalGoldGained);
-        System.out.println("Score: " + score);
+        // System.out.println("Score: " + score);
 
         isRunning = false;
     }
