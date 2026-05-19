@@ -48,6 +48,9 @@ public class SceneLoader {
     public void showResult() {
         load("/fxml/ResultScene.fxml", new ResultController(this));
     }
+    public void showExpeditionSelection() {
+        load("/fxml/ExpeditionScene.fxml", new EventController(this));
+    }
 */
     private void load(String fxmlPath, Object controller) {
         try {
