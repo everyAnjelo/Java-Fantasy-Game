@@ -24,11 +24,11 @@ public class SceneLoader {
     public void showStartUp() {
         load("/fxml/StartUpScene_final.fxml", new StartUpController(this));
     }
-/*
+
     public void showGuildHall() {
         load("/fxml/GuildHallScene.fxml", new GuildHallController(this));
     }
-
+/*
     public void showGuildOverview() {
         load("/fxml/GuildOverviewScene_final.fxml", new GuildOverviewController(this));
     }

@@ -53,7 +53,7 @@ public class GameEnvironment {
         difficulty = askDifficulty();
 
         if (difficulty == Difficulty.EASY) {
-            gold = 11000;
+            gold = 500;
 
         } else {
             gold = 350;
@@ -539,6 +539,8 @@ public class GameEnvironment {
     }
 
     private void hireAdventurer(int choice) {
+
+
         if (choice < 1 || choice > guildHall.getAvailableAdventurers().size()) {
             System.out.println("Invalid adventurer.");
             return;
