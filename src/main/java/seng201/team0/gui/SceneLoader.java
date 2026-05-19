@@ -40,7 +40,7 @@ public class SceneLoader {
     public void showInventory() {
         load("/fxml/InventoryScene.fxml", new InventoryController(this));
     }
-/*
+
     public void showExpedition() {
         load("/fxml/ExpeditionScene.fxml", new ExpeditionController(this));
     }
@@ -49,9 +49,9 @@ public class SceneLoader {
         load("/fxml/ResultScene.fxml", new ResultController(this));
     }
     public void showExpeditionSelection() {
-        load("/fxml/ExpeditionScene.fxml", new EventController(this));
+        load("/fxml/ExpeditionSelectionScene.fxml", new ExpeditionSelectionController(this));
     }
-*/
+
     private void load(String fxmlPath, Object controller) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));

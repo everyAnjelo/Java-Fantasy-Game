@@ -10,20 +10,19 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="655.0" prefWidth="635.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="655.0" prefWidth="635.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <HBox prefHeight="60.0" prefWidth="635.0" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane prefHeight="60.0" prefWidth="355.0">
+            <AnchorPane prefHeight="60.0" prefWidth="355.0" />
+            <AnchorPane prefHeight="60.0" prefWidth="110.0">
                <children>
-                  <Label layoutX="14.0" layoutY="8.0" text="Expedition Selection">
+                  <Label layoutX="-143.0" layoutY="7.0" text="Expedition Selection">
                      <font>
                         <Font size="37.0" />
                      </font>
                   </Label>
-               </children>
-            </AnchorPane>
-            <AnchorPane prefHeight="60.0" prefWidth="110.0" />
+               </children></AnchorPane>
             <AnchorPane prefHeight="60.0" prefWidth="170.0" />
          </children>
       </HBox>
@@ -40,51 +39,51 @@
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <Line endX="225.0" layoutX="114.0" startX="-100.0" stroke="#808080" strokeWidth="2.0" />
+                        <Line endX="535.0" layoutX="114.0" startX="-100.0" stroke="#808080" strokeWidth="2.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane prefHeight="106.0" prefWidth="340.0">
                      <children>
                         <Rectangle arcHeight="2.0" arcWidth="5.0" fill="#eeeeee" height="94.0" layoutX="14.0" layoutY="6.0" stroke="BLACK" strokeType="INSIDE" width="620.0" />
-                        <Label layoutX="25.0" layoutY="11.0" text="Expedition One Name">
+                        <Label fx:id="expeditionOneName" layoutX="25.0" layoutY="11.0" text="Expedition One Name">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Label fx:id="mainRole1" layoutX="25.0" layoutY="38.0" text="Description: -" />
-                        <Label fx:id="mainStamina1" layoutX="257.0" layoutY="30.0" text="Stamina: Required-" />
-                        <Label fx:id="mainPerception1" layoutX="258.0" layoutY="53.0" text="Perception: Required -" />
-                        <Button fx:id="backButton11" layoutX="452.0" layoutY="36.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="145.0" text="Select Expedition" />
+                        <Label fx:id="expeditionOneDescription" layoutX="25.0" layoutY="38.0" text="Description: -" />
+                        <Label fx:id="expeditionOneStamina" layoutX="25.0" layoutY="62.0" text="Stamina: Required-" />
+                        <Label fx:id="expeditionOnePerception" layoutX="263.0" layoutY="62.0" text="Perception: Required -" />
+                        <Button fx:id="expeditionOneButton" layoutX="452.0" layoutY="36.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="145.0" text="Select Expedition" />
                      </children>
                   </AnchorPane>
                   <AnchorPane prefHeight="106.0" prefWidth="340.0">
                      <children>
                         <Rectangle arcHeight="2.0" arcWidth="5.0" fill="#eeeeee" height="94.0" layoutX="14.0" layoutY="6.0" stroke="BLACK" strokeType="INSIDE" width="617.0" />
-                        <Label layoutX="25.0" layoutY="11.0" text="Expedition Two Name">
+                        <Label fx:id="expeditionTwoName" layoutX="25.0" layoutY="11.0" text="Expedition Two Name">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Label fx:id="mainRole2" layoutX="25.0" layoutY="38.0" text="Description" />
-                        <Label fx:id="mainStamina2" layoutX="265.0" layoutY="38.0" text="Stamina: - Required" />
-                        <Label fx:id="mainPerception2" layoutX="265.0" layoutY="62.0" text="Perception: Required-" />
-                        <Button fx:id="backButton12" layoutX="450.0" layoutY="36.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="145.0" text="Select Expedition" />
+                        <Label fx:id="expeditionTwoDescription" layoutX="25.0" layoutY="38.0" text="Description" />
+                        <Label fx:id="expeditionTwoStamina" layoutX="25.0" layoutY="62.0" text="Stamina: - Required" />
+                        <Label fx:id="expeditionTwoPerception" layoutX="265.0" layoutY="62.0" text="Perception: Required-" />
+                        <Button fx:id="expeditionTwoButton" layoutX="450.0" layoutY="36.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="145.0" text="Select Expedition" />
                      </children>
                   </AnchorPane>
                   <AnchorPane prefHeight="106.0" prefWidth="340.0">
                      <children>
                         <AnchorPane prefHeight="106.0" prefWidth="621.0">
                            <children>
-                              <Rectangle arcHeight="2.0" arcWidth="5.0" fill="#eeeeee" height="94.0" layoutX="14.0" layoutY="6.0" stroke="BLACK" strokeType="INSIDE" width="617.0" />
-                              <Label layoutX="25.0" layoutY="11.0" text="Expedition Three Name">
+                              <Rectangle arcHeight="2.0" arcWidth="5.0" fill="#eeeeee" height="94.0" layoutX="16.0" stroke="BLACK" strokeType="INSIDE" width="617.0" />
+                              <Label fx:id="expeditionThreeName" layoutX="25.0" layoutY="11.0" text="Expedition Three Name">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="mainRole11" layoutX="25.0" layoutY="38.0" text="Description" />
-                              <Label fx:id="mainStamina11" layoutX="272.0" layoutY="38.0" text="Stamina: -Required" />
-                              <Label fx:id="mainPerception11" layoutX="265.0" layoutY="64.0" text="Perception: Required-" />
-                              <Button fx:id="backButton13" layoutX="448.0" layoutY="30.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="145.0" text="Select Expedition" />
+                              <Label fx:id="expeditionThreeDescription" layoutX="25.0" layoutY="37.0" text="Description" />
+                              <Label fx:id="expeditionThreeStamina" layoutX="25.0" layoutY="64.0" text="Stamina: -Required" />
+                              <Label fx:id="expeditionThreePerception" layoutX="257.0" layoutY="64.0" text="Perception: Required-" />
+                              <Button fx:id="expeditionThreeButton" layoutX="448.0" layoutY="30.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="145.0" text="Select Expedition" />
                            </children>
                         </AnchorPane>
                      </children>
@@ -92,7 +91,7 @@
                   <AnchorPane prefHeight="106.0" prefWidth="340.0" />
                   <AnchorPane prefHeight="65.0" prefWidth="340.0">
                      <children>
-                        <Button fx:id="backButton" layoutX="14.0" layoutY="16.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="145.0" text="Back to Guildhall" />
+                        <Button fx:id="guildhallButton" layoutX="20.0" layoutY="13.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="145.0" text="Back to Guildhall" />
                         <Button fx:id="startExpeditionButton" layoutX="476.0" layoutY="13.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="145.0" text="Start Expedition" />
                      </children>
                   </AnchorPane>

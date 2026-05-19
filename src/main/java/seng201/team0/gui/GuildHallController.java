@@ -71,7 +71,7 @@ public class GuildHallController {
         hireButton2.setOnAction(event -> hire(1));
         hireButton3.setOnAction(event -> hire(2));
         hireButton4.setOnAction(event -> hire(3));
-        //startExpeditionButton.setOnAction(event -> showExpeditonSelection());
+        startExpeditionButton.setOnAction(event -> sceneLoader.showExpeditionSelection());
 
         refresh();
 

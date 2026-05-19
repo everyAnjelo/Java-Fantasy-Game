@@ -1,8 +1,11 @@
 package seng201.team0.gui;
 
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import seng201.team0.GameEnvironment;
 
-import java.awt.*;
+
 
 public class ExpeditionSelectionController {
 
@@ -10,7 +13,8 @@ public class ExpeditionSelectionController {
     GameEnvironment gameEnvironment;
     SceneLoader sceneLoader;
 
-    @FXML private Label expeditionOneName, expeditionTwoName, expeditionThreeName,
+    @FXML
+    private Label expeditionOneName, expeditionTwoName, expeditionThreeName,
             expeditionOneDescription, expeditionTwoDescription, expeditionThreeDescription,
             expeditionOneStamina, expeditionTwoStamina, expeditionThreeStamina,
             expeditionOnePerception, expeditionTwoPerception, expeditionThreePerception;
@@ -27,35 +31,39 @@ public class ExpeditionSelectionController {
     }
 
     @FXML
-    public void initialize()
-    {
+    public void initialize() {
 
-        expeditionOneName.setText( gameEnvironment.expeditionManager.getExpeditions().getFirst().getName());
-        expeditionTwoName.setText( gameEnvironment.expeditionManager.getExpeditions().get(1).getName());
-        expeditionThreeName.setText( gameEnvironment.expeditionManager.getExpeditions().get(2).getName());
 
-        expeditionOneDescription.setText( gameEnvironment.expeditionManager.getExpeditions().getFirst().getDescription());
-        expeditionTwoDescription.setText( gameEnvironment.expeditionManager.getExpeditions().get(1).getDescription());
-        expeditionThreeDescription.setText( gameEnvironment.expeditionManager.getExpeditions().get(2).getDescription());
+        gameEnvironment.expeditionManager.generatePossibleExpeditions();
 
-        expeditionOnePerception.setText(String.valueOf(gameEnvironment.expeditionManager.getExpeditions().get(0).getPerceptionRequired()));
-        expeditionTwoPerception.setText(String.valueOf(gameEnvironment.expeditionManager.getExpeditions().get(1).getPerceptionRequired()));
-        expeditionThreePerception.setText(String.valueOf(gameEnvironment.expeditionManager.getExpeditions().get(2).getPerceptionRequired()));
+        expeditionOneName.setText(gameEnvironment.expeditionManager.getExpeditions().get(0).getName());
+        expeditionTwoName.setText(gameEnvironment.expeditionManager.getExpeditions().get(1).getName());
+        expeditionThreeName.setText(gameEnvironment.expeditionManager.getExpeditions().get(2).getName());
 
-        expeditionOneStamina.setText(String.valueOf(gameEnvironment.expeditionManager.getExpeditions().get(0).getStaminaRequired()));
-        expeditionTwoStamina.setText(String.valueOf(gameEnvironment.expeditionManager.getExpeditions().get(1).getStaminaRequired()));
-        expeditionThreeStamina.setText(String.valueOf(gameEnvironment.expeditionManager.getExpeditions().get(2).getStaminaRequired()));
+        expeditionOneDescription.setText(gameEnvironment.expeditionManager.getExpeditions().get(0).getDescription());
+        expeditionTwoDescription.setText(gameEnvironment.expeditionManager.getExpeditions().get(1).getDescription());
+        expeditionThreeDescription.setText(gameEnvironment.expeditionManager.getExpeditions().get(2).getDescription());
+
+        expeditionOnePerception.setText("Perception: " + gameEnvironment.expeditionManager.getExpeditions().get(0).getPerceptionRequired());
+        expeditionTwoPerception.setText("Perception: " + gameEnvironment.expeditionManager.getExpeditions().get(1).getPerceptionRequired());
+        expeditionThreePerception.setText("Perception: " + gameEnvironment.expeditionManager.getExpeditions().get(2).getPerceptionRequired());
+
+        expeditionOneStamina.setText("Stamina: " + gameEnvironment.expeditionManager.getExpeditions().get(0).getStaminaRequired());
+        expeditionTwoStamina.setText("Stamina: " + gameEnvironment.expeditionManager.getExpeditions().get(1).getStaminaRequired());
+        expeditionThreeStamina.setText("Stamina: " + gameEnvironment.expeditionManager.getExpeditions().get(2).getStaminaRequired());
 
         expeditionOneButton.setOnAction(event -> selectExpeditionOne());
         expeditionTwoButton.setOnAction(event -> selectExpeditionTwo());
         expeditionThreeButton.setOnAction(event -> selectExpeditionThree());
 
+        startExpeditionButton.setOnAction(event -> startExpedition());
+        guildhallButton.setOnAction(event -> selectGuildHall());
     }
 
 
-    public void selectExpeditionOne()
-    {
-        gameEnvironment.expeditionManager.setCurrentExpedition(gameEnvironment.expeditionManager.getExpeditions().getFirst());
+    public void selectExpeditionOne() {
+        gameEnvironment.expeditionManager.setCurrentExpedition(
+                gameEnvironment.expeditionManager.getExpeditions().get(0));
     }
 
     public void selectExpeditionTwo()
@@ -89,7 +97,6 @@ public class ExpeditionSelectionController {
 
         }
     }
-
 
 }
 
