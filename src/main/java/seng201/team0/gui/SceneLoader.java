@@ -28,7 +28,7 @@ public class SceneLoader {
     public void showGuildHall() {
         load("/fxml/GuildHallScene.fxml", new GuildHallController(this));
     }
-/*
+
     public void showGuildOverview() {
         load("/fxml/GuildOverviewScene_final.fxml", new GuildOverviewController(this));
     }
@@ -40,7 +40,7 @@ public class SceneLoader {
     public void showInventory() {
         load("/fxml/InventoryScene.fxml", new InventoryController(this));
     }
-
+/*
     public void showExpedition() {
         load("/fxml/ExpeditionScene.fxml", new ExpeditionController(this));
     }

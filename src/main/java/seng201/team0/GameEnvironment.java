@@ -53,7 +53,7 @@ public class GameEnvironment {
         difficulty = askDifficulty();
 
         if (difficulty == Difficulty.EASY) {
-            gold = 500;
+            gold = 100000;
 
         } else {
             gold = 350;

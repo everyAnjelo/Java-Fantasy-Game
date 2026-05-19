@@ -6,6 +6,7 @@
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -21,21 +22,28 @@
                   <Font size="31.0" />
                </font>
             </Label>
-            <Label fx:id="goldLabel" layoutX="395.0" layoutY="26.0" text="Gold: 500">
+            <Label fx:id="goldLabel" layoutX="374.0" layoutY="26.0" text="Gold: 500">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
             <MenuButton fx:id="menuButton" layoutX="536.0" layoutY="17.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="63.0" text="☰">
               <items>
+                  <MenuItem fx:id="shopMenuItem" mnemonicParsing="false" text="Shop" />
                 <MenuItem fx:id="inventoryMenuItem" mnemonicParsing="false" text="Inventory" />
                 <MenuItem fx:id="guildOverviewMenuItem" mnemonicParsing="false" text="Guild Overview" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
                 <MenuItem fx:id="exitMenuItem" mnemonicParsing="false" text="Exit" />
               </items>
                <font>
                   <Font size="19.0" />
                </font>
             </MenuButton>
+            <Label fx:id="expeditionCountLabel" layoutX="204.0" layoutY="26.0" text="Expedition: 0/0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </top>
