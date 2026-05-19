@@ -52,8 +52,9 @@
                            </font>
                         </Label>
                         <Label fx:id="mainRole1" layoutX="25.0" layoutY="38.0" text="Description: -" />
-                        <Label fx:id="mainStamina1" layoutX="138.0" layoutY="38.0" text="Stamina: Required-" />
-                        <Label fx:id="mainPerception1" layoutX="138.0" layoutY="56.0" text="Perception: Required -" />
+                        <Label fx:id="mainStamina1" layoutX="257.0" layoutY="30.0" text="Stamina: Required-" />
+                        <Label fx:id="mainPerception1" layoutX="258.0" layoutY="53.0" text="Perception: Required -" />
+                        <Button fx:id="backButton11" layoutX="452.0" layoutY="36.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="145.0" text="Select Expedition" />
                      </children>
                   </AnchorPane>
                   <AnchorPane prefHeight="106.0" prefWidth="340.0">
@@ -65,8 +66,9 @@
                            </font>
                         </Label>
                         <Label fx:id="mainRole2" layoutX="25.0" layoutY="38.0" text="Description" />
-                        <Label fx:id="mainStamina2" layoutX="138.0" layoutY="38.0" text="Stamina: - Required" />
-                        <Label fx:id="mainPerception2" layoutX="138.0" layoutY="56.0" text="Perception: Required-" />
+                        <Label fx:id="mainStamina2" layoutX="265.0" layoutY="38.0" text="Stamina: - Required" />
+                        <Label fx:id="mainPerception2" layoutX="265.0" layoutY="62.0" text="Perception: Required-" />
+                        <Button fx:id="backButton12" layoutX="450.0" layoutY="36.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="145.0" text="Select Expedition" />
                      </children>
                   </AnchorPane>
                   <AnchorPane prefHeight="106.0" prefWidth="340.0">
@@ -80,8 +82,9 @@
                                  </font>
                               </Label>
                               <Label fx:id="mainRole11" layoutX="25.0" layoutY="38.0" text="Description" />
-                              <Label fx:id="mainStamina11" layoutX="138.0" layoutY="38.0" text="Stamina: -Required" />
-                              <Label fx:id="mainPerception11" layoutX="138.0" layoutY="56.0" text="Perception: Required-" />
+                              <Label fx:id="mainStamina11" layoutX="272.0" layoutY="38.0" text="Stamina: -Required" />
+                              <Label fx:id="mainPerception11" layoutX="265.0" layoutY="64.0" text="Perception: Required-" />
+                              <Button fx:id="backButton13" layoutX="448.0" layoutY="30.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="145.0" text="Select Expedition" />
                            </children>
                         </AnchorPane>
                      </children>
@@ -91,7 +94,6 @@
                      <children>
                         <Button fx:id="backButton" layoutX="14.0" layoutY="16.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="145.0" text="Back to Guildhall" />
                         <Button fx:id="startExpeditionButton" layoutX="476.0" layoutY="13.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="145.0" text="Start Expedition" />
-                        <Button fx:id="backButton1" layoutX="230.0" layoutY="13.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="145.0" text="Select Expedition" />
                      </children>
                   </AnchorPane>
                </children>
