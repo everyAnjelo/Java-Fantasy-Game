@@ -1,11 +1,14 @@
 package seng201.team0.gui;
 
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import seng201.team0.GameEnvironment;
 
-public class ExepeditonController {
+public class ExpeditionController {
 
     @FXML
-    private Label  exepeditonName, eventDescription, optionOne, optionTwo;
+    private Label expeditionName, eventDescription, optionOne, optionTwo;
 
 
     @FXML private Button buttonOptionOne, buttonOptionTwo;
@@ -13,7 +16,7 @@ public class ExepeditonController {
     GameEnvironment gameEnvironment;
     SceneLoader sceneLoader;
 
-    public ExepeditonController(SceneLoader sceneLoader)
+    public ExpeditionController(SceneLoader sceneLoader)
     {
         this.sceneLoader = sceneLoader;
         gameEnvironment = this.sceneLoader.getGameEnvironment();
@@ -22,10 +25,13 @@ public class ExepeditonController {
 
     public void initialize()
     {
-        exepeditonName.setText(gameEnvironment.expeditionManager.getCurrentExpedition().getName());
+        expeditionName.setText(gameEnvironment.expeditionManager.getCurrentExpedition().getName());
         eventDescription.setText(gameEnvironment.expeditionManager.getCurrentEvent().getDescription());
-        optionOne.setText(gameEnvironment.expeditionManager.getCurrentEvent().getOptionOne());
-        optionTwo.setText(gameEnvironment.expeditionManager.getCurrentEvent().getOptionTwo());
+        buttonOptionOne.setText(gameEnvironment.expeditionManager.getCurrentEvent().getOptionOne());
+        buttonOptionTwo.setText(gameEnvironment.expeditionManager.getCurrentEvent().getOptionTwo());
+
+        buttonOptionOne.setOnAction(event -> optionOne());
+        buttonOptionTwo.setOnAction(event -> optionTwo());
     }
 
     public void checkIfEnding()
