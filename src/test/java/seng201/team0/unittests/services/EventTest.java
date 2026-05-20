@@ -37,6 +37,7 @@ public class EventTest {
         AdventurerManager adventurerManager = new AdventurerManager();
         this.gameEnvironment = new GameEnvironment();
         this.expeditionManager = new ExpeditionManager(gameEnvironment);
+        gameEnvironment.gold = 10;
 
         expeditionManager.setNumberOfEvents(5);
         expeditionManager.setNumberOfExpeditions(5);
@@ -67,13 +68,14 @@ public class EventTest {
 
 
         testEvent.chooseOptionOne();
+
         assertEquals(105, adventurers.getFirst().getStamina());
         assertEquals(55, adventurers.getFirst().getPerception());
 
         assertEquals(85, adventurers.get(1).getStamina());
         assertEquals(45, adventurers.get(1).getPerception());
 
-        assertEquals(20.0, expeditionManager.getTotalingEarnings());
+        assertEquals(40.0, expeditionManager.getTotalingEarnings());
 
 
 
