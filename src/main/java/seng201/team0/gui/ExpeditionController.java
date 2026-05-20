@@ -36,7 +36,7 @@ public class ExpeditionController {
 
     public void checkIfEnding()
     {
-
+        System.out.println(gameEnvironment.expeditionManager.getNumberOfEvents());
         //go to results screen
         if (gameEnvironment.gold <= 0 || gameEnvironment.expeditionsCompleted == gameEnvironment.totalExpeditions)
         {

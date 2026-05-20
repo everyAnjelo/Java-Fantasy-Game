@@ -115,12 +115,8 @@ public class Event {
             tempPerception = tempPerception - perceptionRequired;
             additivePercentage += 20;
         }
+        expeditionManager.setNumberOfEvents(expeditionManager.getNumberOfEvents() - 1);;
 
-        if (expeditionManager.getNumberOfExpeditions() > 0 )
-        {
-            int oldNumberOfEvents = expeditionManager.getNumberOfEvents();
-            expeditionManager.setNumberOfEvents(oldNumberOfEvents - 1);;
-        }
 
         if(rolledPercentage < additivePercentage + basePercentage)
         {
@@ -155,11 +151,7 @@ public class Event {
     {
         //run
         //Takes away an extra event if the number of events is greater than 0
-        if (expeditionManager.getNumberOfExpeditions() > 0 )
-        {
-            int oldNumberOfEvents = expeditionManager.getNumberOfEvents();
-            expeditionManager.setNumberOfEvents(oldNumberOfEvents - 1);;
-        }
+        expeditionManager.setNumberOfEvents(expeditionManager.getNumberOfEvents() - 1);;
 
     }
 
