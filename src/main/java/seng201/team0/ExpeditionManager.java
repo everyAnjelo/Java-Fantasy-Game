@@ -300,7 +300,7 @@ public class ExpeditionManager {
             adventurerPay += adventurer.getPay();
             adventurer.completeExpedition();
         }
-
+        gameenvironment.expeditionsCompleted += 1;
         gameenvironment.gold = gameenvironment.gold - adventurerPay;
 
 
