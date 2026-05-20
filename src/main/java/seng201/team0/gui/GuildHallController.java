@@ -66,6 +66,8 @@ public class GuildHallController {
         inventoryMenuItem.setOnAction(event -> sceneLoader.showInventory());
         guildOverviewMenuItem.setOnAction((event -> sceneLoader.showGuildOverview()));
         shopMenuItem.setOnAction(event -> sceneLoader.showShop());
+        exitMenuItem.setOnAction(event -> sceneLoader.showResult());
+
 
         hireButton1.setOnAction(event -> hire(0));
         hireButton2.setOnAction(event -> hire(1));
@@ -81,7 +83,7 @@ public class GuildHallController {
 
         Adventurer adventurer = gameEnvironment.guildHall.createAdventurer(index + 1 , tempplate.getName() + gameEnvironment.expeditionsCompleted);
 
-            if(gameEnvironment.adventurerManager.getMainTeam().size() + gameEnvironment.adventurerManager.getReserveTeam().size() == 10 ){
+        if(gameEnvironment.adventurerManager.getMainTeam().size() + gameEnvironment.adventurerManager.getReserveTeam().size() == 10 ){
             GuiHelper.showError("Cant hire more adventuter");
             return;
         }

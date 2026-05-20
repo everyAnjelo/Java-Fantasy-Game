@@ -67,16 +67,14 @@ public class StartUpController {
         Adventurer starterTwo = createStarter(starterTwoChoice.getValue(), starterTwoName.getText(), 2);
         Adventurer starterThree = createStarter(starterThreeChoice.getValue(), starterThreeName.getText(), 3);
 
-        if (starterOne == null || starterTwo == null || starterThree == null) {
-            return;
-        }
+
 
         gameEnvironment.guildName = guildName;
         gameEnvironment.totalExpeditions = (int) expeditionInput.getValue();
 
         if (easyRadioButton.isSelected()) {
             gameEnvironment.difficulty = Difficulty.EASY;
-            gameEnvironment.gold = 50000;
+            gameEnvironment.gold = 200;
         } else {
             gameEnvironment.difficulty = Difficulty.HARD;
             gameEnvironment.gold = 350;
@@ -90,10 +88,7 @@ public class StartUpController {
     }
 
     private Adventurer createStarter(String type, String name, int slotNumber) {
-        if (type == null || type.isBlank()) {
-            GuiHelper.showError("Please choose a class for starter " + slotNumber + ".");
-            return null;
-        }
+
 
         String finalName = name;
         if (finalName == null || finalName.isBlank()) {
