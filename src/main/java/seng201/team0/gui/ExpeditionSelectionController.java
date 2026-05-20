@@ -33,8 +33,22 @@ public class ExpeditionSelectionController {
     @FXML
     public void initialize() {
 
+        gameEnvironment.expeditionManager.createAllEvents();
 
+        generateNewExpeditions();
+
+        expeditionOneButton.setOnAction(event -> selectExpeditionOne());
+        expeditionTwoButton.setOnAction(event -> selectExpeditionTwo());
+        expeditionThreeButton.setOnAction(event -> selectExpeditionThree());
+
+        startExpeditionButton.setOnAction(event -> startExpedition());
+        guildhallButton.setOnAction(event -> selectGuildHall());
+    }
+
+    public void generateNewExpeditions()
+    {
         gameEnvironment.expeditionManager.generatePossibleExpeditions();
+
 
         expeditionOneName.setText(gameEnvironment.expeditionManager.getExpeditions().get(0).getName());
         expeditionTwoName.setText(gameEnvironment.expeditionManager.getExpeditions().get(1).getName());
@@ -52,12 +66,6 @@ public class ExpeditionSelectionController {
         expeditionTwoStamina.setText("Stamina: " + gameEnvironment.expeditionManager.getExpeditions().get(1).getStaminaRequired());
         expeditionThreeStamina.setText("Stamina: " + gameEnvironment.expeditionManager.getExpeditions().get(2).getStaminaRequired());
 
-        expeditionOneButton.setOnAction(event -> selectExpeditionOne());
-        expeditionTwoButton.setOnAction(event -> selectExpeditionTwo());
-        expeditionThreeButton.setOnAction(event -> selectExpeditionThree());
-
-        startExpeditionButton.setOnAction(event -> startExpedition());
-        guildhallButton.setOnAction(event -> selectGuildHall());
     }
 
 
