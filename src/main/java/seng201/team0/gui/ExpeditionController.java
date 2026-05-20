@@ -44,6 +44,7 @@ public class ExpeditionController {
         }
         else if (gameEnvironment.expeditionManager.getNumberOfEvents() <= 0)
         {
+            gameEnvironment.expeditionsCompleted++;
             sceneLoader.showGuildHall();
         }
         else
