@@ -101,7 +101,7 @@ public class ExpeditionSelectionController {
             gameEnvironment.expeditionManager.startExpedition(gameEnvironment.adventurerManager.getMainTeam());
 
             gameEnvironment.expeditionManager.nextEvent(gameEnvironment.adventurerManager.getMainTeam());
-            sceneLoader.showExpeditionSelection();
+            sceneLoader.showExpedition();
 
         }
     }
