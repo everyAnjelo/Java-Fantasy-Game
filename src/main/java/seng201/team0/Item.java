@@ -2,7 +2,6 @@ package seng201.team0;
 
 /**
  * Represents an item that can be bought, stored, and used in the game.
- *
  * Items can be weapons or potions. Weapons are usually restricted to
  * specific adventurer roles, while potions can be used by anyone.
  */
@@ -17,7 +16,6 @@ public class Item implements Purchasable {
 
     /**
      * Creates a new item with its type, price, stat bonuses, and allowed role.
-     *
      * @param name the name of the item
      * @param type the type of item
      * @param price the cost of the item

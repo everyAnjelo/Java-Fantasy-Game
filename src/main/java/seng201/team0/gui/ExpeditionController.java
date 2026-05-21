@@ -40,11 +40,12 @@ public class ExpeditionController {
         //go to results screen
         if (gameEnvironment.gold < 0 || gameEnvironment.expeditionsCompleted == gameEnvironment.totalExpeditions)
         {
+            gameEnvironment.finishGame(false);
             sceneLoader.showResult();
         }
         else if (gameEnvironment.expeditionManager.getNumberOfEvents() <= 0)
         {
-            gameEnvironment.expeditionsCompleted++;
+            //gameEnvironment.expeditionsCompleted++;
             sceneLoader.showGuildHall();
         }
         else

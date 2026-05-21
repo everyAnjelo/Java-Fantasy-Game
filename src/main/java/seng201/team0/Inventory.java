@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 /**
  * Represents the player's inventory.
- *
  * This class stores all items owned by the player and provides methods
  * for adding, removing, checking, retrieving, and displaying items.
  */
@@ -21,9 +20,7 @@ public class Inventory {
 
     /**
      * Adds an item to the inventory.
-     *
      * If the item is null, nothing happens.
-     *
      * @param item the item to add to the inventory
      */
     public void addItem(Item item) {
@@ -37,7 +34,6 @@ public class Inventory {
 
     /**
      * Removes an item from the inventory.
-     *
      * The item is only removed if it exists in the inventory.
      * If the item is not found, a message is displayed.
      *

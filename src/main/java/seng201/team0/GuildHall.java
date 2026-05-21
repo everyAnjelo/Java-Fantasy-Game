@@ -96,7 +96,6 @@ public class GuildHall {
 
     /**
      * Creates an adventurer from a menu choice and custom name.
-     *
      * @param choice the selected adventurer type from 1 to 4
      * @param name the adventurer name entered by the player
      * @return the created adventurer, or null if the choice is invalid
@@ -119,12 +118,6 @@ public class GuildHall {
         return null;
     }
 
-    /**
-     * Refreshes the adventurers for hire after a round.
-     */
-    public void refreshAdventurers() {
-        generateStartingAdventurers();
-    }
 
     /**
      * Gets the cheapest hiring cost currently available in the guild hall.

@@ -596,7 +596,7 @@ public class GameEnvironment {
     }
 
 
-    private void finishGame(boolean won) {
+    public void finishGame(boolean won) {
         System.out.println();
         System.out.println("=== Game Finished ===");
         System.out.println("Guild Name: " + guildName);

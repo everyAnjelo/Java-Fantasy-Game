@@ -23,7 +23,6 @@ public class Shop {
 
     /**
      * Generates the items available in the shop.
-     *
      * This method clears the current shop list first, then adds
      * weapons and potions that the player can buy.
      */
@@ -41,7 +40,6 @@ public class Shop {
 
     /**
      * Displays all items currently available in the shop.
-     *
      * Each item is displayed with a number so the player can choose
      * which item they want to buy.
      */
@@ -55,7 +53,6 @@ public class Shop {
 
     /**
      * Creates a separate copy of an item.
-     *
      * This is used when buying an item so the player receives their own
      * item object instead of directly using the shop's item object.
      *
@@ -75,7 +72,6 @@ public class Shop {
 
     /**
      * Buys an item from the shop.
-     *
      * The player must have enough gold to buy the item. If the purchase
      * is successful, the item's price is deducted from the player's gold,
      * and a copy of the item is added to the player's inventory.
@@ -105,7 +101,6 @@ public class Shop {
 
     /**
      * Sells an item from the player's inventory.
-     *
      * The item must exist in the player's inventory before it can be sold.
      * The player receives 80% of the item's original price as gold.
      *
