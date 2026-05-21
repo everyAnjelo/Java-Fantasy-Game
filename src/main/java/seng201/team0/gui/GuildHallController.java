@@ -64,7 +64,7 @@ public class GuildHallController {
         inventoryMenuItem.setOnAction(event -> sceneLoader.showInventory());
         guildOverviewMenuItem.setOnAction((event -> sceneLoader.showGuildOverview()));
         shopMenuItem.setOnAction(event -> sceneLoader.showShop());
-        exitMenuItem.setOnAction(event -> {gameEnvironment.finishGame(false);sceneLoader.showResult();});
+        exitMenuItem.setOnAction(event -> {sceneLoader.won = false;sceneLoader.showResult();});
 
 
         hireButton1.setOnAction(event -> hire(0));

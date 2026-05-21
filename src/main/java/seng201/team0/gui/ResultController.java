@@ -25,7 +25,7 @@ public class ResultController {
     public void initialize() {
 
         guildNameLabel.setText(gameEnvironment.guildName);
-        winLoseLabel.setText(gameEnvironment.isRunning ? "Won" : "Lost / Finished");
+        winLoseLabel.setText(sceneLoader.won ? "Won" : "Lost / Finished");
         chosenExpeditionLabel.setText(String.valueOf(gameEnvironment.totalExpeditions));
         completedExpeditionLabel.setText(String.valueOf(gameEnvironment.expeditionsCompleted));
         totalGoldLabel.setText(GuiHelper.money(gameEnvironment.totalGoldGained) + " Gold ");

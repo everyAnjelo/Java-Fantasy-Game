@@ -38,12 +38,14 @@ public class ExpeditionController {
     {
         System.out.println(gameEnvironment.expeditionManager.getNumberOfEvents());
         //go to results screen
-        if (gameEnvironment.gold < 0 || gameEnvironment.expeditionsCompleted == gameEnvironment.totalExpeditions)
+        if (gameEnvironment.gold < 0)
         {
-            gameEnvironment.finishGame(false);
+            sceneLoader.won = false;
             sceneLoader.showResult();
-        }
-        else if (gameEnvironment.expeditionManager.getNumberOfEvents() <= 0)
+        } else if (gameEnvironment.expeditionsCompleted == gameEnvironment.totalExpeditions) {
+            sceneLoader.won = true;
+            sceneLoader.showResult();
+        } else if (gameEnvironment.expeditionManager.getNumberOfEvents() <= 0)
         {
             //gameEnvironment.expeditionsCompleted++;
             sceneLoader.showGuildHall();
