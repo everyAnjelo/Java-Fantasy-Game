@@ -40,7 +40,7 @@ public class EventTest {
         gameEnvironment.gold = 10;
 
         expeditionManager.setNumberOfEvents(5);
-        expeditionManager.setNumberOfExpeditions(5);
+        gameEnvironment.totalExpeditions = 5;
         Adventurer adventurer1 = adventurerManager.generateNewAdventurer(0);
         Adventurer adventurer2 = adventurerManager.generateNewAdventurer(0);
 
