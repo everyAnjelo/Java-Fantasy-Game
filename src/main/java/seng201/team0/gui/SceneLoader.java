@@ -10,7 +10,6 @@ import java.io.IOException;
 
 /**
  * This class is used to load and switch between different scenes in the game.
- *
  * It also stores one GameEnvironment object so all controllers can use
  * the same game data instead of creating a new game every time.
  */
@@ -22,9 +21,7 @@ public class SceneLoader {
 
     /**
      * Creates a new SceneLoader.
-     *
      * This also creates one GameEnvironment for the whole game.
-     *
      * @param stage the main stage/window of the game
      */
     public SceneLoader(Stage stage) {
@@ -34,9 +31,7 @@ public class SceneLoader {
 
     /**
      * Gets the game environment.
-     *
      * This lets the controllers access the same game data.
-     *
      * @return the game environment used by the game
      */
     public GameEnvironment getGameEnvironment() {
@@ -101,9 +96,7 @@ public class SceneLoader {
 
     /**
      * Loads an FXML file and shows it on the stage.
-     *
      * The controller is also set here before the FXML is loaded.
-     *
      * @param fxmlPath the path of the FXML file
      * @param controller the controller used for the scene
      */

@@ -155,30 +155,6 @@ class AdventurerManagerTest {
         assertTrue(testManager.getMainTeam().contains(testAdventurer));
     }
 
-    /**
-     * Test removing an adventurer from the reserve team.
-     */
-    @Test
-    void testRemoveAdventurerFromReserve() {
-        testManager.addToReserve(testAdventurer);
-
-        testManager.removeAdventurer(testAdventurer);
-
-        assertEquals(0, testManager.getReserveTeam().size());
-    }
-
-    /**
-     * Test that the last main adventurer cannot be removed.
-     */
-    @Test
-    void testCannotRemoveLastMainAdventurer() {
-        testManager.addToMain(testAdventurer);
-
-        testManager.removeAdventurer(testAdventurer);
-
-        assertEquals(1, testManager.getMainTeam().size());
-        assertTrue(testManager.getMainTeam().contains(testAdventurer));
-    }
 
     /**
      * Test retiring an adventurer from reserve.

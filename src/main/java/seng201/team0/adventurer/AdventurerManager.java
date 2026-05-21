@@ -110,19 +110,16 @@ public class AdventurerManager {
 
     /**
      * Removes an adventurer from the team.
-     *
-     * The adventurer is removed from both the main team and reserve team.
-     * However, the player cannot remove their last main team adventurer.
-     *
+     * The adventurer is removed from both the main team and reserve team
+     * if the completed expedition limit is already reach.
      * @param adventurer the adventurer to remove
      */
-    public void removeAdventurer(Adventurer adventurer) {
+    public void forceRetireAdventurer(Adventurer adventurer) {
         if (adventurer == null) {
             return;
         }
 
-        if (mainTeam.contains(adventurer) && mainTeam.size() <= 1) {
-            System.out.println("You must have at least one adventurer in the main team.");
+        if (mainTeam.contains(adventurer)) {
             return;
         }
 
@@ -202,9 +199,7 @@ public class AdventurerManager {
 
     /**
      * Calculates the total stamina of the main team.
-     *
      * Only adventurers who can still go on expeditions are counted.
-     *
      * @return the total stamina of the available main team adventurers
      */
     public int getTotalStamina() {
@@ -221,9 +216,7 @@ public class AdventurerManager {
 
     /**
      * Calculates the total perception of the main team.
-     *
      * Only adventurers who can still go on expeditions are counted.
-     *
      * @return the total perception of the available main team adventurers
      */
     public int getTotalPerception() {
@@ -240,9 +233,7 @@ public class AdventurerManager {
 
     /**
      * Calculates the total pay required for the main team.
-     *
      * Only adventurers who can still go on expeditions are counted.
-     *
      * @return the total pay of the available main team adventurers
      */
     public double getTotalPay() {
@@ -259,7 +250,6 @@ public class AdventurerManager {
 
     /**
      * Updates the main team after completing an expedition.
-     *
      * Each available main team adventurer has their expedition count increased.
      * If an adventurer reaches their maximum number of expeditions, they are
      * added to a temporary retirement list and retired after the loop.
@@ -284,11 +274,9 @@ public class AdventurerManager {
 
     /**
      * Generates a random new adventurer.
-     *
      * The generated adventurer can be a Warrior, Mage, Marksman, or Rogue.
      * Their stats increase by 10% for each completed expedition, while their pay
      * decreases by 10% for each completed expedition.
-     *
      * @param completedExpeditions the number of expeditions already completed
      * @return a randomly generated adventurer with scaled stats and pay
      */
