@@ -6,7 +6,10 @@ import javafx.scene.control.Label;
 import seng201.team0.gameEnvironment.GameEnvironment;
 
 
-
+/**
+ * ExpeditionSelection Controller
+ * A class for intefacing between the GUI and the Expedition selection
+ */
 public class ExpeditionSelectionController {
 
 
@@ -21,7 +24,10 @@ public class ExpeditionSelectionController {
 
     @FXML private Button expeditionOneButton, expeditionTwoButton, expeditionThreeButton, startExpeditionButton, guildhallButton;
 
-
+    /**
+     * Contructor for the ExpeditionSelectionController
+     * @param sceneLoader for loading the new scenes
+     */
 
     public ExpeditionSelectionController(SceneLoader sceneLoader)
     {
@@ -29,7 +35,9 @@ public class ExpeditionSelectionController {
         gameEnvironment = this.sceneLoader.getGameEnvironment();
 
     }
-
+    /**
+     * initializing the Expedition Selection page
+     */
     @FXML
     public void initialize() {
 
@@ -45,6 +53,9 @@ public class ExpeditionSelectionController {
         guildhallButton.setOnAction(event -> selectGuildHall());
     }
 
+    /**
+     * Method for generating new expeditions using the expedition manager
+     */
     public void generateNewExpeditions()
     {
         gameEnvironment.expeditionManager.generatePossibleExpeditions();
@@ -69,26 +80,41 @@ public class ExpeditionSelectionController {
     }
 
 
+    /**
+     * Method for interfacing to select expedition One
+     */
     public void selectExpeditionOne() {
         gameEnvironment.expeditionManager.setCurrentExpedition(
                 gameEnvironment.expeditionManager.getExpeditions().get(0));
     }
 
+    /**
+     * Method for interfacing to select expedition Two
+     */
     public void selectExpeditionTwo()
     {
         gameEnvironment.expeditionManager.setCurrentExpedition(gameEnvironment.expeditionManager.getExpeditions().get(1));
     }
 
+    /**
+     * Method for interfacing to select expedition Three
+     */
     public void selectExpeditionThree()
     {
         gameEnvironment.expeditionManager.setCurrentExpedition(gameEnvironment.expeditionManager.getExpeditions().get(2));
     }
 
+    /**
+     * Method for interfacing to Change to the Guild hall
+     */
     public void selectGuildHall()
     {
         sceneLoader.showGuildHall();
     }
 
+    /**
+     * Method for starting the Expedition and changing the scene to the event scene
+     */
     public void startExpedition() {
         if (gameEnvironment.expeditionManager.getCurrentExpedition() == null)
         {

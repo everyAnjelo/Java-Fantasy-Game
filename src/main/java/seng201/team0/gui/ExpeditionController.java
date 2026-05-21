@@ -5,6 +5,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import seng201.team0.gameEnvironment.GameEnvironment;
 
+/**
+ * ExpeditionController used for interfacing with the GUI and running the expeditions, choosing the event options to go on
+ * and displaying the stats of the expeditions
+ */
 public class ExpeditionController {
 
     @FXML
@@ -16,13 +20,19 @@ public class ExpeditionController {
     GameEnvironment gameEnvironment;
     SceneLoader sceneLoader;
 
+    /**Constructor for ExpeditionController
+     * @param sceneLoader for loading the new scenes
+     */
+
     public ExpeditionController(SceneLoader sceneLoader)
     {
         this.sceneLoader = sceneLoader;
         gameEnvironment = this.sceneLoader.getGameEnvironment();
 
     }
-
+    /**
+     * initializing the Event page
+     */
     public void initialize()
     {
         expeditionName.setText(gameEnvironment.expeditionManager.getCurrentExpedition().getName());
@@ -33,7 +43,9 @@ public class ExpeditionController {
         buttonOptionOne.setOnAction(event -> optionOne());
         buttonOptionTwo.setOnAction(event -> optionTwo());
     }
-
+    /**
+     * a Method for checking if the result screen needs to show and the game needs to end
+     */
     public void checkIfEnding()
     {
         System.out.println(gameEnvironment.expeditionManager.getNumberOfEvents());
@@ -54,6 +66,9 @@ public class ExpeditionController {
         }
     }
 
+    /**
+     * The interface for selecting option one of the event
+     */
     public void optionOne()
     {
         gameEnvironment.expeditionManager.getCurrentEvent().chooseOptionOne();
@@ -62,6 +77,10 @@ public class ExpeditionController {
         checkIfEnding();
 
     }
+
+    /**
+     * The interface for selectiong option 2 of the event
+     */
     public void optionTwo()
     {
         gameEnvironment.expeditionManager.getCurrentEvent().chooseOptionTwo();

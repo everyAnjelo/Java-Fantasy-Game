@@ -34,6 +34,7 @@ public class GameEnvironment {
     public Scanner scanner;
     public Random random;
 
+
     public GameEnvironment() {
         scanner = new Scanner(System.in);
         random = new Random();
@@ -123,6 +124,7 @@ public class GameEnvironment {
 
     }
 
+
     private Difficulty askDifficulty() {
         while (true) {
             System.out.println("Choose difficulty:");
@@ -145,6 +147,7 @@ public class GameEnvironment {
             }
         }
     }
+
 
     private int askExpeditionCount() {
         while (true) {
@@ -266,6 +269,7 @@ public class GameEnvironment {
         System.out.println("Current gold: " + gold);
         System.out.println("Expeditions completed: " + expeditionsCompleted + "/" + totalExpeditions);
     }
+
     private void guildOverview() {
         boolean viewing = true;
 
@@ -299,6 +303,7 @@ public class GameEnvironment {
             }
         }
     }
+
     private void retireAdventurer(){
         adventurerManager.displayMainTeam();
         adventurerManager.displayReserveTeam();
