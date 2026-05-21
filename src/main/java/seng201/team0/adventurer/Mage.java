@@ -2,7 +2,7 @@ package seng201.team0.adventurer;
 
 public class Mage extends Adventurer {
     public Mage(String name) {
-        super(name, Role.MAGE, 70, 90, 35, 130);
+        super(name, Role.MAGE, 70, 90, 50, 130);
     }
 
     @Override

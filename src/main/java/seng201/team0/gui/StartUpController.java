@@ -99,10 +99,10 @@ public class StartUpController {
 
         if (easyRadioButton.isSelected()) {
             gameEnvironment.difficulty = Difficulty.EASY;
-            gameEnvironment.gold = 200;
+            gameEnvironment.gold = 400;
         } else {
             gameEnvironment.difficulty = Difficulty.HARD;
-            gameEnvironment.gold = 350;
+            gameEnvironment.gold = 250;
         }
 
         gameEnvironment.adventurerManager.addToMain(starterOne);

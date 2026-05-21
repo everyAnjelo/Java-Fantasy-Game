@@ -18,6 +18,7 @@ public class SceneLoader {
 
     private final Stage stage;
     private final GameEnvironment gameEnvironment;
+    public boolean won;
 
     /**
      * Creates a new SceneLoader.

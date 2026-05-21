@@ -3,7 +3,7 @@ package seng201.team0.adventurer;
 public class Warrior extends Adventurer {
 
     public Warrior(String name) {
-        super(name, Role.WARRIOR, 100, 40, 25, 100);
+        super(name, Role.WARRIOR, 100, 40, 45, 110);
     }
 
     @Override
