@@ -21,49 +21,163 @@ public class ExpeditionManager {
     private ArrayList<Event> swampEvents;
     private ArrayList<Event> forestEvents;
     private ArrayList<Event> mountainEvents;
-    private int numberOfExpeditions = 0;
     private int numberOfEvents = 0;
 
-    //Constructor for ExpeditionManager for if hard coding Expedition array is required, should use generateExpeditions
+    /**
+     * Constructor for ExpeditionManager for if hard coding Expedition array is required, should use generateExpeditions
+     *
+     * @param gameEnvironment The game environment for the expedition manager to refer to
+     */
     public ExpeditionManager(GameEnvironment gameEnvironment) {
 
         this.gameenvironment = gameEnvironment;
     }
 
+    /* All Getter Methods */
 
-    //Getter methods
-    public ArrayList<Expedition> getExpeditions() {
+    /**
+     * Getter method for the expedition list
+     */
+    public ArrayList<Expedition> getExpeditions()
+    {
         return Expeditions;
     }
 
-    public Expedition getCurrentExpedition() {
+    /**
+     * Getter method for the current selected Expedition
+     */
+    public Expedition getCurrentExpedition()
+    {
         return currentExpedition;
     }
-
-    public int getNumberOfExpeditions() {
-        return numberOfExpeditions;
+    /**
+     * Getter method for the number of events for the current expedition
+     */
+    public int getNumberOfEvents()
+    {
+        return numberOfEvents;
     }
+
+    /**
+     * Getter method for the amount of gold earned from the expedition
+     */
+    public double getTotalingEarnings()
+    {
+        return totalingEarnings;
+    }
+    /**
+     * Getter method for the current event
+     */
+    public Event getCurrentEvent()
+    {
+        return currentEvent;
+    }
+    /**
+     * Getter method for the list of Forest Events
+     */
+    public ArrayList<Event> getForestEvents()
+    {
+        return forestEvents;
+    }
+    /**
+     * Getter method for the list of Swamp Events
+     */
+    public ArrayList<Event> getSwampEvents()
+    {
+        return swampEvents;
+    }
+    /**
+     * Getter method for the list of Mountain Events
+     */
+    public ArrayList<Event> getMountainEvents() {
+        return mountainEvents;
+    }
+
+
 
     //Setter Methods
-    public void setExpeditions(ArrayList<Expedition> Expeditions) {
+
+    /**
+     * Setter for the list of Expeditions
+     */
+    public void setExpeditions(ArrayList<Expedition> Expeditions)
+    {
         this.Expeditions = Expeditions;
     }
-
-    public void setCurrentExpedition(Expedition currentExpedition) {
+    /**
+     * Setter for the Current Expedition
+     */
+    public void setCurrentExpedition(Expedition currentExpedition)
+    {
         this.currentExpedition = currentExpedition;
     }
 
-    public void setNumberOfExpeditions(int numberOfExpeditions) {
-        this.numberOfExpeditions = numberOfExpeditions;
-    }
-
-    public void setExpeditionNames(ArrayList<String> expeditionNames) {
+    /**
+     * Setter for the Names of the Expeditions
+     */
+    public void setExpeditionNames(ArrayList<String> expeditionNames)
+    {
         this.expeditionNames = expeditionNames;
     }
 
-    public void setExpeditionDescriptions(ArrayList<String> expeditionDescriptions) {
+    /**
+     * Setter for the Descriptions for Expeditions
+     */
+    public void setExpeditionDescriptions(ArrayList<String> expeditionDescriptions)
+    {
         this.expeditionDescriptions = expeditionDescriptions;
     }
+
+    /**
+     * Setter for the list of Forest Events
+     */
+    public void setForestEvents(ArrayList<Event> forestEvents)
+    {
+        this.forestEvents = forestEvents;
+    }
+
+    /**
+     * Setter for the list of Swamp Events
+     */
+    public void setSwampEvents(ArrayList<Event> swampEvents)
+    {
+        this.swampEvents = swampEvents;
+    }
+
+    /**
+     * Setter for the List of Mountain Events
+     */
+    public void setMountainEvents(ArrayList<Event> mountainEvents)
+    {
+        this.mountainEvents = mountainEvents;
+    }
+
+    /**
+     * Setter for the Earnings in the Expedition
+     */
+    public void setTotalingEarnings(double totalingEarnings)
+    {
+        this.totalingEarnings = totalingEarnings;
+    }
+
+    /**
+     * Setter for the number of events in the Expedition
+     */
+    public void setNumberOfEvents(int numberOfEvents)
+    {
+        this.numberOfEvents = numberOfEvents;
+    }
+    /**
+     * Setter for the current event
+     */
+    public void setCurrentEvent(Event currentEvent)
+    {
+        this.currentEvent = currentEvent;
+    }
+
+    /**
+     * Creates all the possible events for the expeditions, sorted into different event types
+     */
     public void createAllEvents()
     {
         ArrayList<Event> tempSwampEvents = new ArrayList<>();
@@ -158,7 +272,9 @@ public class ExpeditionManager {
         setForestEvents(tempForestEvents);
 
     }
-
+    /**
+     * Creates the Names and Descriptions for the expeditions and adds them to two lists for names and descriptions
+     */
     public void createNamesAndDescriptions()
     {
         ArrayList<String> tempDescriptions = new ArrayList<String>();
@@ -175,16 +291,18 @@ public class ExpeditionManager {
         setExpeditionNames(tempNames);
     }
 
-    //Generates Random Expeditions for the Player to choose
+    /**
+     * Generates Random Expeditions for the Player to choose
+     */
     public void generatePossibleExpeditions()
     {
-        //set the names and descriptions for the expeditions
+        /* set the names and descriptions for the expeditions */
         createNamesAndDescriptions();
 
-        //Generate random Numbers for the expedition stats
+        /* Generate random Numbers for the expedition stats */
         Random r = new Random();
 
-        //Counter for number of Expeditions put into the array
+
 
         if (this.getCurrentExpedition() == null) {
             //Temporary list for the Expeditions
@@ -194,13 +312,8 @@ public class ExpeditionManager {
             while (tempExpeditionList.size() < BASE_EXPEDITION_ARRAY_SIZE) {
 
                 //Code for randomly generating Perception and Stamina requirements for Expeditions
-                int addToPerception = (r.nextInt(10) + 1) * numberOfExpeditions;
-                int addToStamina = (r.nextInt(10) + 1) * numberOfExpeditions;
-
-                //Code required for generating names and descriptions, possibly from a pre generated text file
-//                int randomIndexForStrings = r.nextInt(0,3);
-
-
+                int addToPerception = (r.nextInt(3) + 1) * gameenvironment.expeditionsCompleted;
+                int addToStamina = (r.nextInt(3) + 1) * gameenvironment.expeditionsCompleted;
 
                 String newName = expeditionNames.get(i);
                 String newDescription = expeditionDescriptions.get(i);
@@ -232,7 +345,9 @@ public class ExpeditionManager {
     }
 
 
-    //Runs the Current Expedition that was choosen by the player
+    /**
+     * Prepares the number of events for the expedition using the Partys stamina
+     */
     public void startExpedition(ArrayList<Adventurer> Party) {
         //a total for the amount of gold found on the Expedition
         int ExpeditionGoldRewards = 0;
@@ -248,7 +363,9 @@ public class ExpeditionManager {
 
     }
 
-    //Runs the next event in an expedition
+    /**
+     * Runs the next event in an expedition, Deciding the type of event to use and calculating the total party's perception
+     */
     public void nextEvent( ArrayList<Adventurer> Party)
     {
         Random r = new Random();
@@ -289,7 +406,9 @@ public class ExpeditionManager {
 
 
     }
-    //adds the gold to the players earnings
+    /**
+     * adds the total earnings to the players gold, also calculates the pay for the adventurers
+     */
     public void endExpedition(ArrayList<Adventurer> Party)
     {
         gameenvironment.gold = gameenvironment.gold + totalingEarnings;
@@ -308,51 +427,7 @@ public class ExpeditionManager {
 
 
 
-    public ArrayList<Event> getForestEvents() {
-        return forestEvents;
-    }
 
-    public void setForestEvents(ArrayList<Event> forestEvents) {
-        this.forestEvents = forestEvents;
-    }
 
-    public ArrayList<Event> getSwampEvents() {
-        return swampEvents;
-    }
 
-    public void setSwampEvents(ArrayList<Event> swampEvents) {
-        this.swampEvents = swampEvents;
-    }
-
-    public ArrayList<Event> getMountainEvents() {
-        return mountainEvents;
-    }
-
-    public void setMountainEvents(ArrayList<Event> mountainEvents) {
-        this.mountainEvents = mountainEvents;
-    }
-
-    public Event getCurrentEvent() {
-        return currentEvent;
-    }
-
-    public void setCurrentEvent(Event currentEvent) {
-        this.currentEvent = currentEvent;
-    }
-
-    public double getTotalingEarnings() {
-        return totalingEarnings;
-    }
-
-    public void setTotalingEarnings(double totalingEarnings) {
-        this.totalingEarnings = totalingEarnings;
-    }
-
-    public int getNumberOfEvents() {
-        return numberOfEvents;
-    }
-
-    public void setNumberOfEvents(int numberOfEvents) {
-        this.numberOfEvents = numberOfEvents;
-    }
 }

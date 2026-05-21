@@ -24,7 +24,15 @@ public class Event {
     private ExpeditionManager expeditionManager;
 
 
-
+    /**
+     * Constructor for Events
+     *
+     *
+     * @param description a written description for the event
+     * @param optionOne a written description for the first option of the event
+     * @param optionTwo a written description for the Second option of the event
+     * @param reward a double to represent the reward for completing an event
+     */
     public Event(String description, String optionOne, String optionTwo, double reward)
     {
         this.description = description;
@@ -92,7 +100,9 @@ public class Event {
 
 
 
-    //risky option, way to get rewards but also can lose stat points or extra events
+    /**
+     * risky option, way to get rewards but also can lose stat points or extra events
+     */
     public void chooseOptionOne()
     {
 
@@ -147,6 +157,9 @@ public class Event {
 
     }
 
+    /**
+     * A safe option with no rewards
+     */
     public void chooseOptionTwo()
     {
         //run
@@ -154,12 +167,16 @@ public class Event {
         expeditionManager.setNumberOfEvents(expeditionManager.getNumberOfEvents() - 1);;
 
     }
-
+    /**
+     * Player successful message for a success on option one
+     */
     public String successMessage()
     {
         return "You Win";
     }
-
+    /**
+     * Player Failure message for a fail on option one
+     */
     public String failMessage()
     {
         return "You Lost";
