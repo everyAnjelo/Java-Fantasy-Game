@@ -1,4 +1,9 @@
-package seng201.team0;
+package seng201.team0.shop;
+
+import seng201.team0.item.Item;
+import seng201.team0.item.ItemType;
+import seng201.team0.adventurer.Role;
+import seng201.team0.gameEnvironment.GameEnvironment;
 
 import java.util.ArrayList;
 

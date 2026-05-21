@@ -1,6 +1,6 @@
-package seng201.team0;
+package seng201.team0.adventurer;
 
-public class Warrior extends Adventurer{
+public class Warrior extends Adventurer {
 
     public Warrior(String name) {
         super(name, Role.WARRIOR, 100, 40, 25, 100);

@@ -1,4 +1,7 @@
-package seng201.team0;
+package seng201.team0.adventurer;
+
+import seng201.team0.item.Item;
+import seng201.team0.item.ItemType;
 
 /**
  * Represents a general adventurer in the game.

@@ -1,4 +1,6 @@
-package seng201.team0;
+package seng201.team0.inventory;
+
+import seng201.team0.item.Item;
 
 import java.util.ArrayList;
 

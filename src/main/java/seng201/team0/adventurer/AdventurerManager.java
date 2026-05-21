@@ -1,4 +1,4 @@
-package seng201.team0;
+package seng201.team0.adventurer;
 
 import java.util.ArrayList;
 import java.util.Random;

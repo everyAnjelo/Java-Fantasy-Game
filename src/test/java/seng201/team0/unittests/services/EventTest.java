@@ -6,7 +6,11 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 
 
-import seng201.team0.*;
+import seng201.team0.adventurer.Adventurer;
+import seng201.team0.adventurer.AdventurerManager;
+import seng201.team0.expedition.Event;
+import seng201.team0.expedition.ExpeditionManager;
+import seng201.team0.gameEnvironment.GameEnvironment;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -40,7 +44,11 @@ public class EventTest {
         gameEnvironment.gold = 10;
 
         expeditionManager.setNumberOfEvents(5);
+<<<<<<< Updated upstream
         gameEnvironment.totalExpeditions = 5;
+=======
+        //expeditionManager.setNumberOfExpeditions(5);
+>>>>>>> Stashed changes
         Adventurer adventurer1 = adventurerManager.generateNewAdventurer(0);
         Adventurer adventurer2 = adventurerManager.generateNewAdventurer(0);
 

@@ -2,11 +2,11 @@ package seng201.team0.unittests.services;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import seng201.team0.GameEnvironment;
-import seng201.team0.Item;
-import seng201.team0.ItemType;
-import seng201.team0.Role;
-import seng201.team0.Shop;
+import seng201.team0.gameEnvironment.GameEnvironment;
+import seng201.team0.item.Item;
+import seng201.team0.item.ItemType;
+import seng201.team0.adventurer.Role;
+import seng201.team0.shop.Shop;
 
 import static org.junit.jupiter.api.Assertions.*;
 

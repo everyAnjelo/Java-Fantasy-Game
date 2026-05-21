@@ -4,7 +4,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import seng201.team0.GameEnvironment;
+import seng201.team0.gameEnvironment.GameEnvironment;
 
 public class ResultController {
     SceneLoader sceneLoader;
@@ -28,7 +28,7 @@ public class ResultController {
         winLoseLabel.setText(gameEnvironment.isRunning ? "Won" : "Lost / Finished");
         chosenExpeditionLabel.setText(String.valueOf(gameEnvironment.totalExpeditions));
         completedExpeditionLabel.setText(String.valueOf(gameEnvironment.expeditionsCompleted));
-        totalGoldLabel.setText(GuiHelper.money(gameEnvironment.totalGoldGained) + " Gold: ");
+        totalGoldLabel.setText(GuiHelper.money(gameEnvironment.totalGoldGained) + " Gold ");
 
         exitButton.setOnAction(event -> Platform.exit());
     }

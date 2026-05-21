@@ -2,12 +2,6 @@ package seng201.team0.gui;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import seng201.team0.Adventurer;
-import seng201.team0.GameEnvironment;
-import seng201.team0.Item;
-import seng201.team0.ItemType;
-
-import java.util.Optional;
 
 public class GuiHelper {
     private GuiHelper() {

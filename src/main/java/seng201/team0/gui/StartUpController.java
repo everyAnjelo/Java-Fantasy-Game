@@ -8,13 +8,13 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Paint;
-import seng201.team0.Adventurer;
-import seng201.team0.Difficulty;
-import seng201.team0.GameEnvironment;
-import seng201.team0.Mage;
-import seng201.team0.Marksman;
-import seng201.team0.Rogue;
-import seng201.team0.Warrior;
+import seng201.team0.adventurer.Adventurer;
+import seng201.team0.gameEnvironment.Difficulty;
+import seng201.team0.gameEnvironment.GameEnvironment;
+import seng201.team0.adventurer.Mage;
+import seng201.team0.adventurer.Marksman;
+import seng201.team0.adventurer.Rogue;
+import seng201.team0.adventurer.Warrior;
 
 /**
  * Controller for the startup scene.

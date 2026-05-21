@@ -2,9 +2,9 @@ package seng201.team0.unittests.services;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import seng201.team0.Adventurer;
-import seng201.team0.AdventurerManager;
-import seng201.team0.Role;
+import seng201.team0.adventurer.Adventurer;
+import seng201.team0.adventurer.AdventurerManager;
+import seng201.team0.adventurer.Role;
 
 import static org.junit.jupiter.api.Assertions.*;
 

@@ -1,4 +1,4 @@
-package seng201.team0;
+package seng201.team0.item;
 
 /**
  * Making a list of Item type that can be used to inventory and shop.

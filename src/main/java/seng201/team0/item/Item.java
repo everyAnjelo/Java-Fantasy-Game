@@ -1,4 +1,8 @@
-package seng201.team0;
+package seng201.team0.item;
+
+import seng201.team0.adventurer.Adventurer;
+import seng201.team0.adventurer.Role;
+import seng201.team0.shop.Purchasable;
 
 /**
  * Represents an item that can be bought, stored, and used in the game.

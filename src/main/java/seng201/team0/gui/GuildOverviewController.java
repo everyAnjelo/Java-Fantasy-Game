@@ -2,13 +2,11 @@ package seng201.team0.gui;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
-import seng201.team0.Adventurer;
-import seng201.team0.GameEnvironment;
+import seng201.team0.adventurer.Adventurer;
+import seng201.team0.gameEnvironment.GameEnvironment;
 
 import java.util.ArrayList;
-import java.util.Optional;
 
 public class GuildOverviewController {
     SceneLoader sceneLoader;

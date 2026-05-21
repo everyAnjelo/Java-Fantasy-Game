@@ -5,10 +5,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
-import seng201.team0.Adventurer;
-import seng201.team0.GameEnvironment;
-
-import java.lang.classfile.attribute.LineNumberInfo;
+import seng201.team0.adventurer.Adventurer;
+import seng201.team0.gameEnvironment.GameEnvironment;
 
 public class GuildHallController {
 

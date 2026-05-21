@@ -1,4 +1,4 @@
-package seng201.team0;
+package seng201.team0.expedition;
 /**
  * enums for deciding what events to use for an expedition
  */

@@ -1,4 +1,15 @@
-package seng201.team0;
+package seng201.team0.gameEnvironment;
+
+import seng201.team0.adventurer.Adventurer;
+import seng201.team0.adventurer.AdventurerManager;
+import seng201.team0.expedition.Event;
+import seng201.team0.expedition.Expedition;
+import seng201.team0.expedition.ExpeditionManager;
+import seng201.team0.guildHall.GuildHall;
+import seng201.team0.inventory.Inventory;
+import seng201.team0.item.Item;
+import seng201.team0.item.ItemType;
+import seng201.team0.shop.Shop;
 
 import java.util.Random;
 import java.util.Scanner;

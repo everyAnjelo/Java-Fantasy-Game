@@ -1,4 +1,6 @@
-package seng201.team0;
+package seng201.team0.guildHall;
+
+import seng201.team0.adventurer.*;
 
 import java.util.ArrayList;
 

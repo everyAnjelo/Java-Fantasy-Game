@@ -3,12 +3,10 @@ package seng201.team0.gui;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
-import seng201.team0.Adventurer;
-import seng201.team0.GameEnvironment;
-import seng201.team0.Item;
-import seng201.team0.ItemType;
+import seng201.team0.adventurer.Adventurer;
+import seng201.team0.gameEnvironment.GameEnvironment;
+import seng201.team0.item.Item;
+import seng201.team0.item.ItemType;
 
 public class InventoryController {
     SceneLoader sceneLoader;

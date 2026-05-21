@@ -2,7 +2,11 @@ package seng201.team0.unittests.services;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import seng201.team0.*;
+import seng201.team0.adventurer.Adventurer;
+import seng201.team0.adventurer.AdventurerManager;
+import seng201.team0.expedition.EventType;
+import seng201.team0.expedition.ExpeditionManager;
+import seng201.team0.gameEnvironment.GameEnvironment;
 
 import java.util.ArrayList;
 

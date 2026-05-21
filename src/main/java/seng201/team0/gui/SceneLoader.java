@@ -4,7 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import seng201.team0.GameEnvironment;
+import seng201.team0.gameEnvironment.GameEnvironment;
 
 import java.io.IOException;
 

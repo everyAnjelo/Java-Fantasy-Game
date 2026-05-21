@@ -1,11 +1,7 @@
 package seng201.team0.unittests.services;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import seng201.team0.EventType;
-import seng201.team0.Expedition;
-
-
-import java.util.ArrayList;
+import seng201.team0.expedition.EventType;
+import seng201.team0.expedition.Expedition;
 
 
 import static org.junit.jupiter.api.Assertions.*;

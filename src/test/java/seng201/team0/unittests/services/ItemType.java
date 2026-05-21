@@ -1,7 +1,7 @@
-package seng201.team0.unittests;
+package seng201.team0.unittests.services;
 
 import org.junit.jupiter.api.Test;
-import seng201.team0.ItemType;
+import seng201.team0.item.ItemType;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -22,6 +22,7 @@ class ItemTypeTest {
      * Test the SWORD item type.
      */
     @Test
+
     void testSwordItemType() {
         assertEquals(ItemType.SWORD, ItemType.valueOf("SWORD"));
     }
