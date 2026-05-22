@@ -44,11 +44,8 @@ public class EventTest {
         gameEnvironment.gold = 10;
 
         expeditionManager.setNumberOfEvents(5);
-<<<<<<< Updated upstream
         gameEnvironment.totalExpeditions = 5;
-=======
         //expeditionManager.setNumberOfExpeditions(5);
->>>>>>> Stashed changes
         Adventurer adventurer1 = adventurerManager.generateNewAdventurer(0);
         Adventurer adventurer2 = adventurerManager.generateNewAdventurer(0);
 

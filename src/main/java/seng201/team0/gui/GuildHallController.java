@@ -10,7 +10,6 @@ import seng201.team0.gameEnvironment.GameEnvironment;
 
 /**
  * Controller for the guild hall scene.
- *
  * This class shows the adventurers that the player can hire.
  * It also shows the current main team, gold, and expedition count.
  */

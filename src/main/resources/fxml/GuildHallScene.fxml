@@ -27,7 +27,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <MenuButton fx:id="menuButton" layoutX="536.0" layoutY="17.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="63.0" text="☰">
+            <MenuButton fx:id="menuButton" layoutX="505.0" layoutY="17.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="95.0" text="menu">
               <items>
                   <MenuItem fx:id="shopMenuItem" mnemonicParsing="false" text="Shop" />
                 <MenuItem fx:id="inventoryMenuItem" mnemonicParsing="false" text="Inventory" />
@@ -36,7 +36,7 @@
                 <MenuItem fx:id="exitMenuItem" mnemonicParsing="false" text="Exit" />
               </items>
                <font>
-                  <Font size="19.0" />
+                  <Font size="15.0" />
                </font>
             </MenuButton>
             <Label fx:id="expeditionCountLabel" layoutX="204.0" layoutY="26.0" text="Expedition: 0/0">

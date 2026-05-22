@@ -32,13 +32,13 @@
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
                <children>
                   <Rectangle arcHeight="2.0" arcWidth="5.0" fill="#eeeeee" height="76.0" layoutX="14.0" layoutY="10.0" stroke="BLACK" strokeType="INSIDE" width="618.0" />
-                  <Label layoutX="26.0" layoutY="14.0" prefHeight="25.0" prefWidth="145.0" text="Iron Sword">
+                  <Label layoutX="26.0" layoutY="14.0" prefHeight="26.0" prefWidth="252.0" text="Iron Sword">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
                   <Label layoutX="26.0" layoutY="49.0" text="Weapon" />
-                  <Label layoutX="26.0" layoutY="64.0" text="Stamina +20" />
+                  <Label layoutX="26.0" layoutY="64.0" prefHeight="17.0" prefWidth="171.0" text="Stamina +20" />
                   <Label fx:id="priceSword" layoutX="474.0" layoutY="19.0" text="50g">
                      <font>
                         <Font size="23.0" />
@@ -50,13 +50,13 @@
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
                <children>
                   <Rectangle arcHeight="2.0" arcWidth="5.0" fill="#eeeeee" height="76.0" layoutX="16.0" layoutY="9.0" stroke="BLACK" strokeType="INSIDE" width="618.0" />
-                  <Label layoutX="27.0" layoutY="14.0" prefHeight="26.0" prefWidth="160.0" text="Wooden Wand">
+                  <Label layoutX="27.0" layoutY="14.0" prefHeight="26.0" prefWidth="304.0" text="Wooden Wand">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
                   <Label layoutX="27.0" layoutY="47.0" text="Weapon" />
-                  <Label layoutX="27.0" layoutY="62.0" prefHeight="17.0" prefWidth="190.0" text="Stamina +5 Perception +25" />
+                  <Label layoutX="27.0" layoutY="62.0" prefHeight="17.0" prefWidth="298.0" text="Stamina +5 Perception +25" />
                   <Label fx:id="priceWand" layoutX="474.0" layoutY="13.0" text="60g">
                      <font>
                         <Font size="23.0" />
@@ -68,13 +68,13 @@
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
                <children>
                   <Rectangle arcHeight="2.0" arcWidth="5.0" fill="#eeeeee" height="76.0" layoutX="16.0" layoutY="9.0" stroke="BLACK" strokeType="INSIDE" width="618.0" />
-                  <Label layoutX="27.0" layoutY="11.0" prefHeight="26.0" prefWidth="160.0" text="Hunter Bow">
+                  <Label layoutX="27.0" layoutY="11.0" prefHeight="26.0" prefWidth="312.0" text="Hunter Bow">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
                   <Label layoutX="28.0" layoutY="46.0" text="Weapon" />
-                  <Label layoutX="26.0" layoutY="61.0" prefHeight="17.0" prefWidth="190.0" text="Stamina +0 Perception +25" />
+                  <Label layoutX="26.0" layoutY="61.0" prefHeight="17.0" prefWidth="333.0" text="Stamina +0 Perception +25" />
                   <Label fx:id="priceBow" layoutX="474.0" layoutY="10.0" text="55g">
                      <font>
                         <Font size="23.0" />
@@ -86,13 +86,13 @@
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
                <children>
                   <Rectangle arcHeight="2.0" arcWidth="5.0" fill="#eeeeee" height="76.0" layoutX="16.0" layoutY="9.0" stroke="BLACK" strokeType="INSIDE" width="618.0" />
-                  <Label layoutX="27.0" layoutY="8.0" prefHeight="26.0" prefWidth="160.0" text="Sharp Dagger">
+                  <Label layoutX="27.0" layoutY="8.0" prefHeight="26.0" prefWidth="328.0" text="Sharp Dagger">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
                   <Label layoutX="27.0" layoutY="50.0" text="Weapon" />
-                  <Label layoutX="26.0" layoutY="65.0" prefHeight="17.0" prefWidth="190.0" text="Stamina +10 Perception +15" />
+                  <Label layoutX="26.0" layoutY="65.0" prefHeight="17.0" prefWidth="348.0" text="Stamina +10 Perception +15" />
                   <Label fx:id="priceDagger" layoutX="474.0" layoutY="9.0" text="50g">
                      <font>
                         <Font size="23.0" />
@@ -104,13 +104,13 @@
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
                <children>
                   <Rectangle arcHeight="2.0" arcWidth="5.0" fill="#eeeeee" height="76.0" layoutX="16.0" layoutY="9.0" stroke="BLACK" strokeType="INSIDE" width="618.0" />
-                  <Label layoutX="27.0" layoutY="12.0" prefHeight="26.0" prefWidth="160.0" text="Small Potion">
+                  <Label layoutX="27.0" layoutY="12.0" prefHeight="26.0" prefWidth="361.0" text="Small Potion">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
                   <Label layoutX="28.0" layoutY="48.0" text="Potion" />
-                  <Label layoutX="28.0" layoutY="64.0" prefHeight="17.0" prefWidth="190.0" text="Stamina +15 Perception +5" />
+                  <Label layoutX="28.0" layoutY="64.0" prefHeight="17.0" prefWidth="360.0" text="Stamina +15 Perception +5" />
                   <Label fx:id="priceSmallPotion" layoutX="486.0" layoutY="10.0" text="25g">
                      <font>
                         <Font size="23.0" />
@@ -122,13 +122,13 @@
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
                <children>
                   <Rectangle arcHeight="2.0" arcWidth="5.0" fill="#eeeeee" height="76.0" layoutX="16.0" layoutY="9.0" stroke="BLACK" strokeType="INSIDE" width="618.0" />
-                  <Label layoutX="27.0" layoutY="11.0" prefHeight="26.0" prefWidth="160.0" text="Focus Potion">
+                  <Label layoutX="27.0" layoutY="11.0" prefHeight="26.0" prefWidth="352.0" text="Focus Potion">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
                   <Label layoutX="27.0" layoutY="50.0" text="Potion" />
-                  <Label layoutX="27.0" layoutY="65.0" prefHeight="17.0" prefWidth="190.0" text="Stamina +5 Perception +20" />
+                  <Label layoutX="27.0" layoutY="65.0" prefHeight="17.0" prefWidth="356.0" text="Stamina +5 Perception +20" />
                   <Button fx:id="buyButtonFocusPotion" layoutX="554.0" layoutY="50.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="65.0" text="Buy" />
                   <Label fx:id="priceFocusPotion" layoutX="486.0" layoutY="9.0" text="30g">
                      <font>
@@ -163,7 +163,7 @@
             </AnchorPane>
             <AnchorPane prefHeight="60.0" prefWidth="252.0">
                <children>
-                  <Button fx:id="backButton" layoutX="116.0" layoutY="10.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="89.0" text="Back" />
+                  <Button fx:id="backButton" layoutX="116.0" layoutY="10.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="89.0" text="return " />
                </children>
             </AnchorPane>
          </children>

@@ -53,6 +53,7 @@ public class ShopController {
         buyButtonFocusPotion.setOnAction(event -> buy(5));
 
         backButton.setOnAction(event -> sceneLoader.showGuildHall());
+        goldLabel.setText(GuiHelper.money(gameEnvironment.gold));
     }
 
     /**
@@ -68,4 +69,5 @@ public class ShopController {
             GuiHelper.showError("Not enough gold to buy " + item.getName() + ".");
         }
     }
+
 }

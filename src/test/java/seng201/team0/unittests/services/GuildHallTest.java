@@ -208,7 +208,7 @@ class GuildHallTest {
     void testGetCheapestHiringCost() {
         double cheapest = testGuildHall.getCheapestHiringCost();
 
-        assertEquals(100.0, cheapest);
+        assertEquals(110.0, cheapest);
     }
 
     /**

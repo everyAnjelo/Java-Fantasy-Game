@@ -7,7 +7,11 @@ import seng201.team0.adventurer.Adventurer;
 import seng201.team0.gameEnvironment.GameEnvironment;
 
 import java.util.ArrayList;
-
+/**
+ * Controller for the guild overview scene.
+ *
+ * This shows the main team and reserve team.
+ */
 public class GuildOverviewController {
     SceneLoader sceneLoader;
     GameEnvironment gameEnvironment;
@@ -30,11 +34,20 @@ public class GuildOverviewController {
     @FXML private Label reserveRole5, reserveName5, reserveStamina5, reservePerception5, reservePay5;
     @FXML private Button reserveRetireButton1, reserveRetireButton2, reserveRetireButton3, reserveRetireButton4, reserveRetireButton5;
     @FXML private Button reserveUseButton1, reserveUseButton2, reserveUseButton3, reserveUseButton4, reserveUseButton5;
+
+    /**
+     * Creates the controller and gets the game data.
+     *
+     * @param sceneLoader used to change scenes
+     */
     public GuildOverviewController(SceneLoader sceneLoader){
         this.sceneLoader = sceneLoader;
         this.gameEnvironment = sceneLoader.getGameEnvironment();
 
     }
+    /**
+     * Sets up the buttons when the scene opens.
+     */
     public void initialize() {
         OpenGuildHallButton.setOnAction(event -> sceneLoader.showGuildHall());
 
@@ -64,6 +77,9 @@ public class GuildOverviewController {
 
         refresh();
     }
+    /**
+     * Updates the gold label and all adventurer slots.
+     */
     private void refresh() {
         goldLabel.setText("Gold: " + GuiHelper.money(gameEnvironment.gold));
         refreshSlot(gameEnvironment.adventurerManager.getMainTeam(), 0, mainRole1, mainName1, mainStamina1, mainPerception1, mainPay1, mainMoveButton1, mainRetireButton1);
@@ -79,6 +95,21 @@ public class GuildOverviewController {
         refreshSlot(gameEnvironment.adventurerManager.getReserveTeam(), 4, reserveRole5, reserveName5, reserveStamina5, reservePerception5, reservePay5, reserveUseButton5, reserveRetireButton5);
     }
 
+    /**
+     * Shows one adventurer slot.
+     *
+     * If the slot is empty, it shows blank values.
+     *
+     * @param list the team list
+     * @param index the slot number
+     * @param role role label
+     * @param name name label
+     * @param stamina stamina label
+     * @param perception perception label
+     * @param pay pay label
+     * @param actionButton move/use button
+     * @param retireButton retire button
+     */
     private void refreshSlot(ArrayList<Adventurer> list, int index, Label role, Label name, Label stamina, Label perception, Label pay, Button actionButton, Button retireButton) {
         if (index >= list.size()) {
             role.setText("Role: -");
@@ -100,21 +131,41 @@ public class GuildOverviewController {
         retireButton.setDisable(false);
     }
 
+    /**
+     * Moves an adventurer from main team to reserve team.
+     *
+     * @param index the adventurer position
+     */
     private void moveMainToReserve(int index) {
         gameEnvironment.adventurerManager.addToReserve(gameEnvironment.adventurerManager.getMainTeam().get(index));
         refresh();
     }
-
+    /**
+     * Moves an adventurer from reserve team to main team.
+     *
+     * @param index the adventurer position
+     */
     private void moveReserveToMain(int index) {
         gameEnvironment.adventurerManager.addToMain(gameEnvironment.adventurerManager.getReserveTeam().get(index));
         refresh();
     }
+
+    /**
+     * Retires an adventurer from the main team.
+     *
+     * @param index the adventurer position
+     */
 
     private void retireMain(int index) {
         gameEnvironment.adventurerManager.retireAdventurer(gameEnvironment.adventurerManager.getMainTeam().get(index));
         refresh();
     }
 
+    /**
+     * Retires an adventurer from the reserve team.
+     *
+     * @param index the adventurer position
+     */
     private void retireReserve(int index) {
         gameEnvironment.adventurerManager.retireAdventurer(gameEnvironment.adventurerManager.getReserveTeam().get(index));
         refresh();

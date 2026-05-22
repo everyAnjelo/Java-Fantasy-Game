@@ -34,7 +34,7 @@
             </AnchorPane>
             <AnchorPane prefHeight="60.0" prefWidth="170.0">
                <children>
-                  <Button fx:id="OpenGuildHallButton" layoutX="62.0" layoutY="12.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="47.0" text="button" />
+                  <Button fx:id="OpenGuildHallButton" layoutX="45.0" layoutY="12.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="82.0" text="return " />
                </children>
             </AnchorPane>
          </children>

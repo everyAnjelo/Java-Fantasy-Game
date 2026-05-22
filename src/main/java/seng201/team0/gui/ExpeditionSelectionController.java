@@ -25,7 +25,7 @@ public class ExpeditionSelectionController {
     @FXML private Button expeditionOneButton, expeditionTwoButton, expeditionThreeButton, startExpeditionButton, guildhallButton;
 
     /**
-     * Contructor for the ExpeditionSelectionController
+     * Constructor for the ExpeditionSelectionController
      * @param sceneLoader for loading the new scenes
      */
 

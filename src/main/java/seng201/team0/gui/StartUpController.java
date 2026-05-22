@@ -39,10 +39,8 @@ public class StartUpController {
 
     /**
      * Creates the startup controller.
-     *
      * This also gets the game environment from the scene loader so the
      * game data can be saved in one place.
-     *
      * @param sceneLoader the scene loader used to change scenes
      */
     public StartUpController(SceneLoader sceneLoader) {
@@ -52,7 +50,6 @@ public class StartUpController {
 
     /**
      * Sets up the startup scene when it first loads.
-     *
      * This puts values into the combo boxes, updates the expedition number,
      * and makes the start button run the start game method.
      */
@@ -76,7 +73,6 @@ public class StartUpController {
 
     /**
      * Starts the game after the player clicks the start button.
-     *
      * This checks the guild name, creates the starter adventurers,
      * sets the difficulty, gives the starting gold, and then moves
      * to the guild hall scene.
@@ -114,9 +110,7 @@ public class StartUpController {
 
     /**
      * Makes a starter adventurer from the type chosen by the player.
-     *
      * If the player does not type a name, a default starter name is used.
-     *
      * @param type the type of adventurer chosen
      * @param name the name typed by the player
      * @param slotNumber the starter number, used for the default name
