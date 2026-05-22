@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class ExpeditionManager {
-    protected final int BASE_PERCEPTION_SCORE = 60;
-    protected final int BASE_STAMINA_SCORE = 250;
-    protected final int BASE_EXPEDITION_ARRAY_SIZE = 3;
-    private ArrayList<Expedition> Expeditions;
+    protected final int basePerceptionScore = 60;
+    protected final int baseStaminaScore = 250;
+    protected final int baseExpeditionArraySize = 3;
+    private ArrayList<Expedition> expeditions;
     private final GameEnvironment gameenvironment;
     //The current Expedition the player has chosen and is working on
     private Expedition currentExpedition;
@@ -43,7 +43,7 @@ public class ExpeditionManager {
      */
     public ArrayList<Expedition> getExpeditions()
     {
-        return Expeditions;
+        return expeditions;
     }
 
     /**
@@ -105,7 +105,7 @@ public class ExpeditionManager {
      */
     public void setExpeditions(ArrayList<Expedition> Expeditions)
     {
-        this.Expeditions = Expeditions;
+        this.expeditions = Expeditions;
     }
     /**
      * Setter for the Current Expedition
@@ -312,7 +312,7 @@ public class ExpeditionManager {
             ArrayList<Expedition> tempExpeditionList = new ArrayList<>();
             int i = 0;
 
-            while (tempExpeditionList.size() < BASE_EXPEDITION_ARRAY_SIZE) {
+            while (tempExpeditionList.size() < baseExpeditionArraySize) {
 
                 //Code for randomly generating Perception and Stamina requirements for Expeditions
                 int addToPerception = (r.nextInt(3) + 1) * gameenvironment.expeditionsCompleted;
@@ -331,8 +331,8 @@ public class ExpeditionManager {
                 Expedition newExpedition = new Expedition(
                         newName,
                         newDescription,
-                        (addToStamina * 15) + BASE_STAMINA_SCORE,
-                        (addToPerception * 5) + BASE_PERCEPTION_SCORE,
+                        (addToStamina * 15) + baseStaminaScore,
+                        (addToPerception * 5) + basePerceptionScore,
                         (addToPerception + addToStamina) * 2,
                         newEventType);
 
